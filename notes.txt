@@ -1,2 +1,31 @@
 Links:
 1. https://github.com/Numbericons/LairBnB
+2. Proposal
+    1. https://docs.google.com/spreadsheets/d/1u5s-t9H5cKyK4hbtUcTs9lw4jWRJ-4PL4bOqG_Di0X8/edit?ts=5d235f9e#gid=0
+
+Types:
+    Volcano
+    Island
+    Castle
+    Subterranean
+    Mansion
+    Undersea 
+
+Amenities:
+    Torture Chamber 
+        <i class="fas fa-user-injured"></i>
+    Minions
+        <i class="fas fa-people-carry"></i>
+    Wi Fi
+        <i class="fas fa-wifi"></i>
+    Hero Detector
+        <i class="fas fa-mask"></i>
+    Pool
+        <i class="fas fa-swimming-pool"></i>
+    Cemetary
+        <i class="fas fa-skull-crossbones"></i>
+
+
+Flavor:
+Guest Book
+    <i class="fas fa-book-dead"></i>
