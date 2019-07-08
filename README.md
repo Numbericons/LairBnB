@@ -20,12 +20,14 @@ LairBnB is a full stack clone of AirBnB that connects villains who want to rent 
 * **Hosting:** Heroku
 * Google Maps API 
 * BCrypt for user authentication
-* AWS S3 for storage
+* AWS S3 for storage of images
 * React-Dates for our calendar 
 
 ## Technical Challenges
-
-everything
+* React Dates
+* Google maps
+* Conflicting bookings
+* Mongoose data seed
 
 ## Bonus Features
 * Login with facebook / chrome
@@ -35,9 +37,9 @@ everything
 
 ## Group Members and Work Breakdown
 
-* April Graves,
-* Charles Mancuso,
-* Christie Brandao,
+* April Graves
+* Charles Mancuso
+* Christie Brandao
 * Zach Oliver
 
 ### Monday, July 8th
