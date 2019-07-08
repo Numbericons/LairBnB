@@ -35,19 +35,10 @@ everything
 
 ## Group Members and Work Breakdown
 
-maps: charles, april
-search: christie, zach
-
 * April Graves,
 * Charles Mancuso,
 * Christie Brandao,
 * Zach Oliver
-
-* Lairs Listing Index and Show
-* Booking (CRUD)
-* Reviews
-* Search
-* Hosts Show Page
 
 ### Monday, July 8th
 * Wiki
