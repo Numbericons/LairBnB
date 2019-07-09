@@ -57,10 +57,6 @@ const LairSchema = new Schema({
         type: Boolean,
         default: false
     },
-    wifi: {
-        type: Boolean,
-        default: false
-    },
     hero_detector: {
         type: Boolean,
         default: false
