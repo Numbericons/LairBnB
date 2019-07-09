@@ -11,25 +11,26 @@
     align-items: center;
     justify-content: space-between;
     height: 50px;
-    padding-top: 13px;
+    padding-top: 12px;
 }
 
 .fa-airbnb {
-    font-size: 37px;
-    padding-left: 20px;
+    font-size: 33px;
+    padding-left: 17px;
     color: white;
+    transform: translate(0px, -2px);
 }
 
 .nav-session-cont {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    padding-right: 5px;
+    padding-right: 16px;
 }
 
 .btn-session {
     color: white;
-    font-size: 14px;
+    font-size: 13px;
     background: transparent;
     border: none;
     font-weight: 500;
