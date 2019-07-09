@@ -14,10 +14,12 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
-    // date: {
-    //     type: Date,
-    //     default: Date.now
-    // }
+    image_url: {
+        type: String,
+    },
+    host_description: {
+        type: String
+    }
 })
 
 module.exports = User = mongoose.model('users', UserSchema);
