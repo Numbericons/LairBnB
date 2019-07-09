@@ -9,9 +9,9 @@ const SplashPage = props => {
             <i className="fab fa-airbnb"></i>
           </a>
           
-          <nav class='nav-session-cont'>
-            <button class='btn-session'>Log in</button>
-            <button class='btn-session'>Sign up</button>
+          <nav className='nav-session-cont'>
+            <button className='btn-session'>Log in</button>
+            <button className='btn-session'>Sign up</button>
           </nav>
         </div>
       </div>
