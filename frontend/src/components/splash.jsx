@@ -1,4 +1,5 @@
 import React from 'react';
+import BookingForm from './bookings/booking_form'
 
 const SplashPage = props => {
   return (
@@ -9,12 +10,14 @@ const SplashPage = props => {
             <i className="fab fa-airbnb"></i>
           </a>
           
-          <nav className='nav-session-cont'>
+          <nav className='nav-session-container'>
             <button className='btn-session'>Log in</button>
             <button className='btn-session'>Sign up</button>
           </nav>
         </div>
+        <BookingForm />
       </div>
+
     </section>
   )
 }
