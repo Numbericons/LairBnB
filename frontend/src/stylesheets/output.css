@@ -1,0 +1,80 @@
+html, body, header, nav, h1, a,
+ul, li, strong, main, button, i,
+section, img, div, h2, p, form,
+fieldset, label, input, textarea,
+span, article, footer, time, small {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  vertical-align: inherit;
+  box-sizing: inherit;
+  background: transparent; }
+
+ul, ol {
+  list-style: none; }
+
+img {
+  display: block;
+  width: 100%;
+  height: auto; }
+
+input,
+textarea,
+button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; }
+
+button,
+input[type="submit"], a {
+  cursor: pointer; }
+
+body {
+  font-family: 'Roboto', sans-serif; }
+
+.splash-back {
+  background-image: url(https://lairbnb-dev.s3.us-east-2.amazonaws.com/splash/Barad_dur.jpg);
+  min-width: 100vw;
+  height: 100vh;
+  background-size: cover; }
+
+.nav-splash-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+  padding-top: 12px; }
+
+.fa-airbnb {
+  font-size: 33px;
+  padding-left: 17px;
+  color: white;
+  transform: translate(0px, -2px); }
+
+.nav-session-cont {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding-right: 16px; }
+
+.btn-session {
+  color: white;
+  font-size: 13px;
+  background: transparent;
+  border: none;
+  font-weight: 500;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 30px;
+  padding-top: 30px;
+  box-sizing: border-box;
+  border-bottom: 2px solid transparent; }
+  .btn-session:hover {
+    border-bottom: 2px solid white; }
+
+/*# sourceMappingURL=output.css.map */
