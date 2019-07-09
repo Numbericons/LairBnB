@@ -34,6 +34,9 @@ LairBnB is a full stack clone of AirBnB that connects villains who want to rent 
 * Experience Hosting
 * Host a Lair
 * Cycle through splash page images to show a different image on refresh
+* Availability for Lair beyond booking conflicts
+* Neighborhood Map
+* Lair Review Form
 
 ## Group Members and Work Breakdown
 
