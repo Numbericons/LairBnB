@@ -8,7 +8,7 @@
     background: #ffffff;
     border-radius: 4px;
     padding: 32px;
-    width: 441px;
+    width: 460px;
     box-shadow: 0 16px 40px rgba(0,0,0,0.12);
     position: absolute;
     left: 0;
@@ -92,4 +92,19 @@
 
 .booking-box-dates {
     padding: 20px 0px;
+}
+
+.DateInput {
+  width: 45%;
+  position: inherit;
+}
+.DayPicker_weekHeader_ul {
+  display: flex;
+}
+.DateRangePicker {
+  margin-top: 6px;
+  width: 100%;
+}
+.DateRangePickerInput {
+  width: 100%;
 }
