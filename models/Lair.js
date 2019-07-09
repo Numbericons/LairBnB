@@ -10,6 +10,9 @@ const LairSchema = new Schema({
         type: String,
         required: true
     },
+    image_url: {
+        type: String,
+    },
     location: {
         type: String,
         required: true
@@ -30,7 +33,7 @@ const LairSchema = new Schema({
         required: true
     },
     rate: {
-        type: String,
+        type: Number,
         required: true
     },
     max_guests: {
@@ -38,7 +41,7 @@ const LairSchema = new Schema({
         required: true
     },
     type: {
-        type: Number,
+        type: String,
         required: true
     },
     owner_id: {
