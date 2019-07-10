@@ -14,6 +14,11 @@ class BookingForm extends React.Component {
         }
     }
 
+    componentDidMount(){
+        let input = document.getElementById('booking-box-search-location');
+        let autocomplete = new window.google.maps.places.Autocomplete(input);
+    }
+
     render(){
         const number_of_guests = [];
         for (let i=2;i<=16;i++) {
@@ -28,7 +33,7 @@ class BookingForm extends React.Component {
                     <form className="booking-form">
                         <label className='booking-box-label' htmlFor='booking-bar'>WHERE</label>
                         <div className='booking-box-input'>
-                            <input className='box-input' type="text" placeholder='Anywhere' autoComplete='off'/>
+                            <input id="booking-box-search-location" className='box-input' type="text" placeholder='Anywhere' autoComplete='off'/>
                         </div>
                         <div>
                             <div className='booking-box-dates'>
