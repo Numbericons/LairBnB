@@ -123,6 +123,96 @@ const seedUsers = () => {
       })
     );
 
+    userArray.push(
+      new User({
+        username: "Aragog",
+        email: "uLookTasty@fandango.com",
+        image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/villains/Aragog.jpg",
+        password: "gogarA",
+        host_description: "My mom says I spend too much time on the web."
+      })
+    );
+
+    userArray.push(
+      new User({
+        username: "Frankenstein",
+        email: "F34RL355@yahoo.com",
+        image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/villains/Aragog.jpg",
+        password: "ElizabethLavenza",
+        host_description: "Beware; for I am fearless, and therefore powerful."
+      })
+    );
+    
+    userArray.push(
+      new User({
+        username: "Darth Vader",
+        email: "annie@skywalker.dark",
+        image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/villains/vader.jpeg",
+        password: "DrainTheDagobah",
+        host_description: "Be careful not to choke on your convictions."
+      })
+    );
+
+    userArray.push(
+      new User({
+        username: "Hannibal Lecter",
+        email: "Silence_of_the_lambs_is_a_terrible_movie@longEmail.com",
+        image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/villains/Hannibal.jpg",
+        password: "passw0rd",
+        host_description: "Once you get over the mask I'm wearing, I'm actually a nice guy."
+      })
+    );
+
+    userArray.push(
+      new User({
+        username: "Count Dracula",
+        email: "garlicbreath@transylvania.edu",
+        image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/villains/dracula.jpg",
+        password: "woodenstakes",
+        host_description: "There are darknesses in life and there are lights, and you are one of the lights, the light of all lights."
+      })
+    );
+
+    userArray.push(
+      new User({
+        username: "Smaug",
+        email: "ispitfire@eminem.co",
+        image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/villains/smaug.jpg",
+        password: "filthyhobbitses",
+        host_description: "His rage passes description - the sort of rage that is only seen when rich folk that have more than they can enjoy suddenly lose something that they have long had but have never before used or wanted."
+      })
+    );
+
+    userArray.push(
+      new User({
+        username: "Freddy Krueger",
+        email: "askmeaboutskincare@beauty.com",
+        image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/villains/Kreuger.jpg",
+        password: "3lmstr33t",
+        host_description: "43, single, willing to meet up at your location!"
+      })
+    );
+
+    userArray.push(
+      new User({
+        username: "Locutus of Borg",
+        email: "drone@collective.net",
+        image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/villains/locutus.jpg",
+        password: "picard",
+        host_description: "I am Locutus of Borg. Resistance is futile. Your life as it has been is over. From this time forward, you will service us."
+      })
+    );
+
+    userArray.push(
+      new User({
+        username: "Lich King",
+        email: "arthasnomore@scourge.com",
+        image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/villains/lichking.jpg",
+        password: "ForTheHorde",
+        host_description: "You speak of justice? Of cowardice? I will show you the justice of the grave... and the true meaning of fear."
+      })
+    );
+
     for (let i=0, fin=userArray.length; i < fin; i++) {
       const user = userArray[i];
       bcrypt.genSalt(10, (err, salt) => {
