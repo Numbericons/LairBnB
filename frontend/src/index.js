@@ -32,9 +32,11 @@ document.addEventListener('DOMContentLoaded', () => {
       store.dispatch(logout());
       window.location.href = '/login';
     }
+
   } else {
     store = configureStore({});
   }
+  window.getState = store.getState;
   const root = document.getElementById('root');
 
   googleMapsReadyPromise.then(() => ReactDOM.render(<Root store={store} />, root))

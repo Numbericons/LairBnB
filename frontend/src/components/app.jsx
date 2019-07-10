@@ -10,7 +10,8 @@ import Splash from './splash';
 const App = () => (
   <section>
     <Switch>
-        <Route exact path="/" component={Splash} />
+      <Route exact path="/" component={Splash} />
+      <Route exact path="/index" component={Splash} />
         {/* <Route path="/lair/:lair_id" component={LairShowContainer} /> */}
         {/* <Route path="/search/all" component={LairIndex} */}
     </Switch>
