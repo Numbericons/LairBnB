@@ -13,12 +13,13 @@
     display: flex;
     flex-direction: row;
     align-items: flex-end;
+    flex-wrap: wrap;
 }
 
 .lair-tile {
     height: 300px;
     width: 240px;
-    margin-right: 15px;
+    margin: 0px 15px 15px 0px;
     text-align: center;
     background-size: cover;
     background-position-x: center;
@@ -32,12 +33,14 @@
     height: 50px;
 }
 
-.lair-name {
+.lair-type {
     font-size: 18px;
     color: white;
+    text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.8);
 }
 
 .lair-rate {
     font-size: 14px;
     color: white;
+    text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.8);
 }

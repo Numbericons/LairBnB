@@ -1,5 +1,6 @@
 import React from 'react'
-import MainLairIndexItem from './main_lair_index_item';
+import MainLairTypeIndexItem from './main_lair_type_index_item';
+import mean from 'lodash.mean'
 
 class MainLairIndex extends React.Component {
     componentDidMount(){
@@ -10,52 +11,56 @@ class MainLairIndex extends React.Component {
         if (Object.keys(this.props.lairs).length === 0){
             return <div className="lair-index-container"></div>
         }
-        let manorLairItems = Object.keys(this.props.lairs).map(lairId => {
-            let lair = this.props.lairs[lairId];
-            if (lair.type === "manor"){
-                return <MainLairIndexItem
-                    key={lairId}
-                    lair={lair}
-                />
+
+        //Get each type of lair in an array
+        let types = [];
+        
+        Object.keys(this.props.lairs).forEach(lairId => {
+            let lairType = this.props.lairs[lairId].type
+            if (!types.includes(lairType)){
+                types.push(lairType)
             }
         })
 
-        let towerLairItems = Object.keys(this.props.lairs).map(lairId => {
+        //Get average prices for each lair type
+        let lairTypePrices = {};
+        Object.keys(this.props.lairs).forEach(lairId => {
             let lair = this.props.lairs[lairId];
-            if (lair.type === "tower") {
-                return <MainLairIndexItem
-                    key={lairId}
-                    lair={lair}
-                />
+            if (!lairTypePrices[lair.type]){
+                lairTypePrices[lair.type] = [];
             }
+            lairTypePrices[lair.type].push(lair.rate)
         })
 
-        let caveLairItems = Object.keys(this.props.lairs).map(lairId => {
-            let lair = this.props.lairs[lairId];
-            if (lair.type === "cave") {
-                return <MainLairIndexItem
-                    key={lairId}
-                    lair={lair}
-                />
-            }
+        let lairTypePriceAverage = {};
+        
+        Object.keys(lairTypePrices).forEach(type => {
+            lairTypePriceAverage[type] = Math.floor(mean(lairTypePrices[type]))
         })
 
+        // Create a tile for each type of lair
+        let lairTypeItems = {};
+        types.forEach(type => {
+            Object.keys(this.props.lairs).forEach(lairId => {
+                let lair = this.props.lairs[lairId];
+                if (lair.type === type && !lairTypeItems[type]){
+                    let typeStr = type.charAt(0).toUpperCase() + type.slice(1)
+                    lairTypeItems[type] = ( <MainLairTypeIndexItem
+                        key={lairId}
+                        image={lair.image_url}
+                        type={typeStr}
+                        avgNightlyRate={lairTypePriceAverage[type]}
+                        />
+                    )
+                }
+            })
+        })
 
         return (
             <div className="lair-index-container">
-                <h2 className="lair-index-type-header">Head to a manor</h2>
+                <h2 className="lair-index-type-header">Recommended for you</h2>
                 <ul className='lair-row-container'>
-                    {manorLairItems}
-                </ul>
-
-                <h2 className="lair-index-type-header">Spend some time in a tower</h2>
-                <ul className='lair-row-container'>
-                    {towerLairItems}
-                </ul>
-
-                <h2 className="lair-index-type-header">Get cozy in a cave</h2>
-                <ul className='lair-row-container'>
-                    {caveLairItems}
+                    {Object.values(lairTypeItems)}
                 </ul>
             </div>
         )
