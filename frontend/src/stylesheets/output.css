@@ -179,6 +179,40 @@ body {
   width: 100%; }
 
 .lair-index-container {
-  background-color: black; }
+  padding: 30px; }
+
+.lair-index-type-header {
+  color: #484848;
+  font-weight: 600;
+  font-size: 25px;
+  padding: 15px 0px 15px 0px; }
+
+.lair-row-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end; }
+
+.lair-tile {
+  height: 300px;
+  width: 240px;
+  margin-right: 15px;
+  text-align: center;
+  background-size: cover;
+  background-position-x: center;
+  border-radius: 3px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center; }
+
+.lair-info {
+  height: 50px; }
+
+.lair-name {
+  font-size: 18px;
+  color: white; }
+
+.lair-rate {
+  font-size: 14px;
+  color: white; }
 
 /*# sourceMappingURL=output.css.map */
