@@ -11,7 +11,11 @@ const User = require('../models/User');
 const seedLairs = () => {
   Lair.deleteMany({}, (err) => { console.log(err) });
   return new Promise((res, rej) => {
+<<<<<<< HEAD
     
+=======
+sfe
+>>>>>>> e889cbd7fa6f20cac0c92b57dd4ffa859dfddfac
     User.findOne({ username: "Lord Voldemort" })
       .then(user => {
           newLair = new Lair({
