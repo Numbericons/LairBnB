@@ -1,96 +1,113 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
 
 class SignupForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: '',
-      username: '',
-      password: '',
-      // password2: '',
-      errors: {}
+      username: "",
+      email: "",
+      password: "",
     };
-
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.clearedErrors = false;
+    this.changeInput = this.changeInput.bind(this);
+    this.showErrors = this.showErrors.bind(this);
+    this.demoLogin = this.demoLogin.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.signedIn === true) {
-      this.props.history.push('/login');
+  handleSubmit(event) {
+    event.preventDefault();
+    this.props.clearErrors();
+    this.props.login(this.state)
+  }
+
+  changeInput(key) {
+    return (event) => {
+      this.setState({ [key]: event.target.value })
     }
-
-    this.setState({errors: nextProps.errors})
   }
 
-  update(field) {
-    return e => this.setState({
-      [field]: e.currentTarget.value
-    });
+  showErrors(key) {
+    let errors = this.props.errors[key];
+    const input = document.getElementById(`${key}-input`);
+    if (errors) {
+      input.classList.add("red-border")
+      return <span>- {errors}</span>
+    } else if (label && input) {
+      input.classList.remove("red-border");
+    }
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
-    let user = {
-      email: this.state.email,
-      username: this.state.username,
-      password: this.state.password,
-      // password2: this.state.password2
-    };
-
-    this.props.signup(user, this.props.history); 
-  }
-
-  renderErrors() {
-    return(
-      <ul>
-        {Object.keys(this.state.errors).map((error, i) => (
-          <li key={`error-${i}`}>
-            {this.state.errors[error]}
-          </li>
-        ))}
-      </ul>
-    );
-  }
+  demoLogin(event) {
+    event.preventDefault();
+    const demoUser = {
+      email: "DemoUser@gmail.com",
+      password: "password",
+    }
+    this.props.clearErrors();
+    this.props.login(demoUser)
+  };
 
   render() {
     return (
-      <div className="login-form-container">
-        <form onSubmit={this.handleSubmit}>
-          <div className="login-form">
-            <br/>
-              <input type="text"
-                value={this.state.email}
-                onChange={this.update('email')}
-                placeholder="Email"
-              />
-            <br/>
-              <input type="text"
-                value={this.state.username}
-                onChange={this.update('username')}
-                placeholder="Username"
-              />
-            <br/>
-              <input type="password"
-                value={this.state.password}
-                onChange={this.update('password')}
-                placeholder="Password"
-              />
-            <br/>
-              {/* <input type="password"
-                value={this.state.password2}
-                onChange={this.update('password2')}
-                placeholder="Confirm Password"
-              />
-            <br/> */}
-            <input type="submit" value="Submit" />
-            {this.renderErrors()}
-          </div>
-        </form>
+      <div className="modal-dark-bg">
+        <section id={formType} className="auth-box box-on-bg">
+          <button>
+            Log in with Facebook
+          </button>
+          <button>
+            Log in with Google
+          </button>
+
+
+          <form onSubmit={this.handleSubmit}>
+            <input
+              id="email-input"
+              type="email"
+              value={this.state.email}
+              placeholder="Email address"
+              onChange={this.changeInput("email")} 
+            />
+            {this.showErrors("email")}
+
+            <input 
+              id="first_name-input"
+              type="text"
+              value={this.state.first_name}
+              placeholder="First name"
+              onChange={this.changeInput("first_name")} 
+            />
+            {this.showErrors("first_name")}
+
+            <input
+              id="last_name-input"
+              type="text"
+              value={this.state.last_name}
+              placeholder="Last name"
+              onChange={this.changeInput("last_name")}
+            />
+            {this.showErrors("last_name")}
+
+            <input
+              id="password-input"
+              type="password"
+              value={this.state.password}
+              placeholder="Create a Password"
+              onChange={this.changeInput("password")}
+            />
+            {this.showErrors("password")}
+
+            <button id="demo-login" onClick={this.demoLogin}>Demo Login</button>
+
+            <input type="submit" value="Sign up"/>
+
+            Already have a Lairbnb account?&nbsp;
+            <button>Log in</button>
+          </form>
+          
+        </section>
       </div>
     );
   }
 }
 
-export default withRouter(SignupForm);
+export default SignupForm;
