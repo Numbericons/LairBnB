@@ -4,7 +4,7 @@ const lairsReducer = (state = {}, action) => {
     Object.freeze(state);
     switch (action.type) {
         case RECEIVE_ALL_LAIRS:
-            return action.lairs;
+            return action.lairs.data;
         default:
             return state;
     }

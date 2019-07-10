@@ -2,6 +2,7 @@ import React from 'react';
 import { Route } from 'react-router-dom'
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import { Switch } from 'react-router-dom';
+import MainLairIndexContainer from '../components/lairs/main_lairs_index_container';
 
 import Splash from './splash';
 // import SignupFormContainer from '../session/signup_form_container';
@@ -11,7 +12,7 @@ const App = () => (
   <section>
     <Switch>
       <Route exact path="/" component={Splash} />
-      <Route exact path="/index" component={Splash} />
+      <Route exact path="/index" component={MainLairIndexContainer} />
         {/* <Route path="/lair/:lair_id" component={LairShowContainer} /> */}
         {/* <Route path="/search/all" component={LairIndex} */}
     </Switch>
