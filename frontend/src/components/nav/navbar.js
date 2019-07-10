@@ -1,42 +1,87 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import './navbar.css'
+import LogInContainer from '../session/login_form_container';
+import SignUpContainer from '../session/signup_form_container';
 
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
-    this.logoutUser = this.logoutUser.bind(this);
-    this.getLinks = this.getLinks.bind(this);
+    this.state = {
+      modal: ""
+    };
+    // this.logoutUser = this.logoutUser.bind(this);
   }
 
-  logoutUser(e) {
-      e.preventDefault();
-      this.props.logout();
+  // logoutUser(e) {
+  //     e.preventDefault();
+  //     this.props.logout();
+  // }
+
+  showModal() {
+    switch (this.state.modal) {
+      case "sign in":
+        return <LogInContainer closeComponent={this.changeModal("")} />
+      case "sign up":
+        return <SignUpContainer closeComponent={this.changeModal("")} />
+      default:
+        return ""
+    }
+  }
+
+  changeModal(modalName) {
+    return (event) => {
+      this.setState({ modal: modalName });
+    }
   }
 
   getLinks() {
-      if (this.props.loggedIn) {
-        return (
-            <div>
-                <Link to={'/'}>Splash Page</Link>
-                <button onClick={this.logoutUser}>Logout</button>
-            </div>
-        );
-      } else {
-        return (
-            <div>
-                <Link to={'/signup'}>Sign up</Link>
-                <Link to={'/login'}>Log in</Link>
-            </div>
-        );
-      }
+    if (this.state.loggedIn) {
+      return (
+        <nav className='nav-session-container'>
+          <button
+            className='btn-session'
+          >
+            Trips
+          </button>
+          <button
+            className='btn-session'
+          >
+            Messages
+          </button>
+          <img
+            className='btn-session profile-pic'
+            src={this.props.currentUser.image_url}
+          />
+        </nav>
+      )
+    } else {
+      return (
+        <nav className='nav-session-container'>
+          <button
+            className='btn-session'
+            onClick={this.changeModal("sign in")}
+          >
+            Log in
+            </button>
+          <button
+            className='btn-session'
+            onClick={this.changeModal("sign up")}
+          >
+            Sign up
+            </button>
+        </nav>
+      )
+    }
   }
-
+  
   render() {
       return (
-        <div>
-            <h1>This text is in navbar.js</h1>
-            { this.getLinks() }
+        <div className="nav-splash-container">
+          <a href="#/">
+            <i className="fab fa-airbnb"></i>
+          </a>
+          {this.getLinks()}
+          {this.showModal()}
         </div>
       );
   }
