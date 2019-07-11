@@ -322,7 +322,7 @@ const seedLairs = () => {
         newLair = new Lair({
           name: "Castle Lecter",
           description: "Rates are cheap and the capacity is high. bring ALL of your friends.",
-          image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/lairs/vader_deathstar.jpeg",
+          image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/lairs/HannibalCastle.jpeg",
           location: "Aukštaitija, Lithuania",
           lat: 50.464461, 
           lng: 4.869226,
@@ -385,7 +385,7 @@ const seedLairs = () => {
         }, err => { console.log(`${newLair.name} was unable to save due to: ${err}`) })
       })
 
-    User.findOne({ username: "Freddy Kreuger" })
+    User.findOne({ username: "Freddy Krueger" })
       .then(user => {
         newLair = new Lair({
           name: "Elm Street Manor",
@@ -465,7 +465,7 @@ const seedLairs = () => {
         newLair = new Lair({
           name: "The Moon Tower",
           description: "Spacious halls high atop the Mountains of the Moon. Mind the Moon Door.",
-          image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/lairs/Lyssa_The_Eyrie_(Viewer's_Guide).png",
+          image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/lairs/Lyssa_The_Eyrie.png",
           location: "The Eyrie",
           lat: 39.7217044,
           lng: 21.6284009,
@@ -485,9 +485,9 @@ const seedLairs = () => {
     User.findOne({ username: "Kristatos" })
       .then(user => {
         newLair = new Lair({
-          name: "St. Cyril's Monestary",
+          name: "St. Cyril's Monastery",
           description: "This monestary/manor atop a mountain will surely get your blood pumping. Enjoy the spacious interior and don't mind my henchmen smugg... moving items in and around the manor.",
-          image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/lairs/st.+cyril's+Monastery.jpg",
+          image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/lairs/st_cyrils_monastery.jpg",
           location: "Peneas Valley, Greece",
           lat: 39.7217047,
           lng: 21.6284006,
