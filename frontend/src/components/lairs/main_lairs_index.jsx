@@ -68,15 +68,21 @@ class MainLairIndex extends React.Component {
         })
         return (
             <div className="lair-index-container">
-                <h2 className="lair-index-type-header">Recommended for you</h2>
+                <h2 className="lair-index-header">Recommended for you</h2>
                 <ul className='lair-row-container'>
                     {Object.values(lairTypeItems)}
                 </ul>
 
-                <h2 className="lair-index-type-header">Lairs to stay around the world</h2>
+                <h2 className="lair-index-header">Lairs to stay around the world</h2>
                 <ul className='lair-row-container'>
                     {randomLairItems}
                 </ul>
+
+                <h2 className="lair-index-header">Lairbnb Evil Luxury Plus</h2>
+                <h3 className="lair-index-sub-header">A selection of places to stay verified for modern luxury and design</h3>
+                <div className="lair-index-plus-image">
+                    <h4 className="lair-index-plus-text">Evil Luxury</h4>
+                </div>
             </div>
         )
     }
