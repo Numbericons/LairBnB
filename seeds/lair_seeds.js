@@ -403,7 +403,7 @@ const seedLairs = () => {
           owner_id: user.id,
           torture_chamber: true,
           wifi: true,
-          cemetery: true,
+          cemetery: true
         })
         newLair.save().then(lair => {
           console.log(`Success: ${lair.name} was created`);
@@ -577,7 +577,7 @@ const seedLairs = () => {
       .then(user => {
         newLair = new Lair({
           name: "Thai Island",
-          description: "Beautiful tower atop a Thai karst.",
+          description: "Beautiful spot atop a Thai karst.",
           image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/lairs/thai+island.jpg",
           location: "Khao Phing Kan",
           lat: 8.2746301,
