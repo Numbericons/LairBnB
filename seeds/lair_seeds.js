@@ -11,11 +11,7 @@ const User = require('../models/User');
 const seedLairs = () => {
   Lair.deleteMany({}, (err) => { console.log(err) });
   return new Promise((res, rej) => {
-<<<<<<< HEAD
     
-=======
-sfe
->>>>>>> e889cbd7fa6f20cac0c92b57dd4ffa859dfddfac
     User.findOne({ username: "Lord Voldemort" })
       .then(user => {
           newLair = new Lair({
@@ -281,7 +277,7 @@ sfe
           description: "Take a ride on the wild side and venture to this castle on the hill. Even Ed Sheeran won't be able to silence your screams of agony.",
           image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/lairs/frankensteinscastle.jpeg",
           location: "Muhltal, Germany",
-          lat: 49.793920, 8.668150
+          lat: 49.793920,
           lng: 8.668150,
           country: "Germany",
           rate: 1999,
@@ -393,7 +389,7 @@ sfe
     User.findOne({ username: "Freddy Kreuger" })
       .then(user => {
         newLair = new Lair({
-          name: "Elm Street Manor"
+          name: "Elm Street Manor",
           description: "This elegant home was built in the 1850's. It's complete with beautiful wooden windows, a scarlet red door, and a luxurious front yard. Book now before it's too late!",
           image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/lairs/kreuger_elmstreet.jpg",
           location: "Ohio",
@@ -406,7 +402,7 @@ sfe
           type: "manor",
           owner_id: user.id,
           torture_chamber: true,
-          wifi: true
+          wifi: true,
           cemetery: true,
         })
         newLair.save().then(lair => {
@@ -417,7 +413,7 @@ sfe
     User.findOne({ username: "Locutus of Borg" })
       .then(user => {
         newLair = new Lair({
-          name: "Borg Cube"
+          name: "Borg Cube",
           description: "You will be assimilated.",
           image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/lairs/borg_cube.jpg",
           location: "Space",
@@ -430,7 +426,7 @@ sfe
           type: "spaceship",
           owner_id: user.id,
           torture_chamber: true,
-          wifi: true
+          wifi: true,
           hero_detector: true,
           minions: true,
           pool: true
@@ -443,7 +439,7 @@ sfe
     User.findOne({ username: "Lich King" })
       .then(user => {
         newLair = new Lair({
-          name: "Icecrown Citadel"
+          name: "Icecrown Citadel",
           description: "Air conditioned spire overlooking Icecrown Citadel and Northrend.",
           image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/lairs/lichkingtower.jpg",
           location: "Icecrown, Northrend",
