@@ -301,21 +301,13 @@ class AuthForm extends React.Component {
             </button>          
           </div>
           
-<<<<<<< HEAD
           {this.props.formType === "sign up" ? (
-=======
-          {this.props.formType == "sign up" ? (
->>>>>>> a1c28bb53f5d1bb3475ebabdfbb741318f22cdc3
             this.displaySignUpOptions()
           ):(
             this.displaySignInOptions()
           )}
           
-<<<<<<< HEAD
           {this.props.formType === "sign up" ? (
-=======
-          {this.props.formType == "sign up" ? (
->>>>>>> a1c28bb53f5d1bb3475ebabdfbb741318f22cdc3
             <div className="auth-bottom-text">
               Already have a Lairbnb account?&nbsp;
               <button 

@@ -79,7 +79,6 @@ body {
   .btn-session:hover {
     border-bottom: 2px solid white; }
 
-<<<<<<< HEAD
 .profile-pic {
   border-radius: 50%;
   width: 30px;
@@ -113,8 +112,6 @@ body {
 .show-hidden {
   display: block; }
 
-=======
->>>>>>> a1c28bb53f5d1bb3475ebabdfbb741318f22cdc3
 .modal-dark-bg {
   position: absolute;
   background-color: rgba(0, 0, 0, 0.3);
