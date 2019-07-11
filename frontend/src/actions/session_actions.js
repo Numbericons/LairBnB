@@ -18,15 +18,10 @@ export const logoutUser = () => ({
 
 export const signup = user => dispatch => (
     APIUtil.signup(user).then((res) => {
-        const { token } = res.data;
-        localStorage.setItem('jwtToken', token);
-        APIUtil.setAuthToken(token);
-        const decoded = jwt_decode(token);
-        const { id, email, username, image_url, host_description } = decoded;
-        dispatch(receiveCurrentUser({ id, email, username, image_url, host_description }))
+        const {email, password} = user;
+        return dispatch(login({email, password}));
     }, err => {
         dispatch(receiveErrors(err.response.data));
-        throw "eeep";
     })
 );
 
@@ -37,11 +32,10 @@ export const login = user => dispatch => (
         APIUtil.setAuthToken(token);
         const decoded = jwt_decode(token);
         const {id, email, username, image_url, host_description} = decoded;
-        dispatch(receiveCurrentUser({id, email, username, image_url, host_description}))
+        return dispatch(receiveCurrentUser({id, email, username, image_url, host_description}))
     })
     .catch(err => {
         dispatch(receiveErrors(err.response.data));
-        throw "eeep";
     })
 )
 

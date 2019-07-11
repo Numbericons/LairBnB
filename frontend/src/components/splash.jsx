@@ -3,9 +3,6 @@ import BookingForm from './bookings/booking_form';
 import NavBarContainer from './nav/navbar_container';
 
 class SplashPage extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     return (

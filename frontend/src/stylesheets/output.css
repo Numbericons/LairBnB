@@ -79,6 +79,39 @@ body {
   .btn-session:hover {
     border-bottom: 2px solid white; }
 
+.profile-pic {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer; }
+
+#user-dropdown {
+  position: absolute;
+  z-index: 2;
+  box-sizing: border-box;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px;
+  padding: 0 15px;
+  width: 290px;
+  top: 85px;
+  right: 10px;
+  background-color: white;
+  color: #484848;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif; }
+
+.user-dropdown-lis {
+  padding: 20px 0;
+  cursor: pointer;
+  border-bottom: 1px solid #f2f2f2; }
+
+.user-dropdown-lis:hover {
+  border-bottom: 1px solid #767676; }
+
+.hidden {
+  display: none; }
+
+.show-hidden {
+  display: block; }
+
 .modal-dark-bg {
   position: absolute;
   background-color: rgba(0, 0, 0, 0.3);

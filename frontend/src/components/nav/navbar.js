@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
 import LogInContainer from '../session/login_form_container';
 import SignUpContainer from '../session/signup_form_container';
 
@@ -7,14 +6,43 @@ class NavBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      modal: ""
+      modal: "",
+      showUserDropdown: false
     };
     this.logoutUser = this.logoutUser.bind(this);
+    this.toggleUserDropdown = this.toggleUserDropdown.bind(this);
+    this.handleClickOutside = this.handleClickOutside.bind(this);
   }
 
   logoutUser(e) {
       e.preventDefault();
+      this.toggleUserDropdown();
       this.props.logout();
+  }
+
+  toggleUserDropdown(event) {
+    if (this.inside.classList.contains("show-hidden")) {
+      this.inside.classList.remove("show-hidden");
+      document.removeEventListener("mousedown", this.handleClickOutside);
+    } else {
+      this.inside.classList.add("show-hidden");
+      document.addEventListener("mousedown", this.handleClickOutside);
+    }
+  }
+
+  componentDidMount() {
+    this.inside = document.getElementById("user-dropdown");
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("mousedown", this.handleClickOutside);
+  }
+
+  handleClickOutside(event) {
+    if (this.inside && !this.inside.contains(event.target) && event.target.tagName !== "IMG") {
+      this.inside.classList.remove("show-hidden");
+      document.removeEventListener("mousedown", this.handleClickOutside);
+    }
   }
 
   showModal() {
@@ -58,16 +86,14 @@ class NavBar extends React.Component {
           >
             Messages
           </button>
-          <img
-            className='btn-session profile-pic'
-            src={this.props.currentUser.image_url}
-          />
-          <button
-            className="btn-session"
-            onClick={this.logoutUser}
-          >
-            Logout
-          </button>
+          <div className='btn-session'>
+            <img
+              className='profile-pic'
+              alt="user profile pic"
+              src={this.props.currentUser.image_url || ""}
+              onClick={this.toggleUserDropdown}
+            />
+          </div>
         </nav>
       )
     } else {
@@ -97,6 +123,22 @@ class NavBar extends React.Component {
             <i className="fab fa-airbnb"></i>
           </a>
           {this.getLinks()}
+          <ul
+            id="user-dropdown"
+            className="hidden"
+          >
+            <li
+              className="user-dropdown-lis"
+            >
+              Profile
+            </li>
+            <li
+              className="user-dropdown-lis"
+              onClick={this.logoutUser}
+            >
+              Log Out
+            </li>
+          </ul>
           {this.showModal()}
         </div>
       );
