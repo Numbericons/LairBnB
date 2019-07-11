@@ -36,7 +36,6 @@ export const login = user => dispatch => (
     })
     .catch(err => {
         dispatch(receiveErrors(err.response.data));
-        throw "eeep";
     })
 )
 
