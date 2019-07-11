@@ -9,20 +9,30 @@ class NavBar extends React.Component {
     this.state = {
       modal: ""
     };
-    // this.logoutUser = this.logoutUser.bind(this);
+    this.logoutUser = this.logoutUser.bind(this);
   }
 
-  // logoutUser(e) {
-  //     e.preventDefault();
-  //     this.props.logout();
-  // }
+  logoutUser(e) {
+      e.preventDefault();
+      this.props.logout();
+  }
 
   showModal() {
     switch (this.state.modal) {
       case "sign in":
-        return <LogInContainer closeComponent={this.changeModal("")} />
+        return (
+          <LogInContainer 
+            closeComponent={this.changeModal("")}
+            switchComponent={this.changeModal("sign up")}
+          />
+        )
       case "sign up":
-        return <SignUpContainer closeComponent={this.changeModal("")} />
+        return (
+          <SignUpContainer 
+            closeComponent={this.changeModal("")}
+            switchComponent={this.changeModal("sign in")}
+          />        
+        )
       default:
         return ""
     }
@@ -35,7 +45,7 @@ class NavBar extends React.Component {
   }
 
   getLinks() {
-    if (this.state.loggedIn) {
+    if (this.props.currentUser) {
       return (
         <nav className='nav-session-container'>
           <button
@@ -52,6 +62,12 @@ class NavBar extends React.Component {
             className='btn-session profile-pic'
             src={this.props.currentUser.image_url}
           />
+          <button
+            className="btn-session"
+            onClick={this.logoutUser}
+          >
+            Logout
+          </button>
         </nav>
       )
     } else {
@@ -62,13 +78,13 @@ class NavBar extends React.Component {
             onClick={this.changeModal("sign in")}
           >
             Log in
-            </button>
+          </button>
           <button
             className='btn-session'
             onClick={this.changeModal("sign up")}
           >
             Sign up
-            </button>
+          </button>
         </nav>
       )
     }
