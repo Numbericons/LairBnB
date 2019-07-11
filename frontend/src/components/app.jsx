@@ -2,8 +2,8 @@ import React from 'react';
 import { Route } from 'react-router-dom'
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import { Switch } from 'react-router-dom';
-import MainLairIndexContainer from '../components/lairs/main_lairs_index_container';
-import LairShowContainer from '../components/lairs/lair_show_container';
+import MainLairIndexContainer from './lairs/main_lairs_index_container';
+import LairShowContainer from './lairs/lair_show_container';
 
 import Splash from './splash';
 // import SignupFormContainer from '../session/signup_form_container';
@@ -11,10 +11,10 @@ import Splash from './splash';
 
 const App = () => (
   <section>
-    <Switch>
       <Route exact path="/" component={Splash} />
-      <Route exact path="/index" component={MainLairIndexContainer} />
-      <Route exact path="/lairs/:lair_id" component={LairShowContainer} />
+    <Switch>
+      <Route exact path="/" component={MainLairIndexContainer} />
+      <Route path="/lair/:lair_id" component={LairShowContainer} />
         {/* <Route path="/search/all" component={LairIndex} */}
     </Switch>
     {/* <AuthRoute path="/login" component={LoginFormContainer} />
