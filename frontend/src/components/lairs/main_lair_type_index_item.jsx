@@ -7,7 +7,7 @@ class MainLairTypeIndexItem extends React.Component {
         }
 
         return (
-            <li className='lair-tile' style={lairTileStyle}>
+            <li className='lair-type-tile' style={lairTileStyle}>
                 <div className="lair-info">
                     <p className='lair-type'>{this.props.type}</p>
                     <p className='lair-rate'>${this.props.avgNightlyRate}/nightly average</p>

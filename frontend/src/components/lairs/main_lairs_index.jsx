@@ -1,6 +1,8 @@
 import React from 'react'
 import MainLairTypeIndexItem from './main_lair_type_index_item';
+import LairIndexItem from './lair_index_item';
 import mean from 'lodash.mean'
+import samplesize from 'lodash.samplesize'
 
 class MainLairIndex extends React.Component {
     componentDidMount(){
@@ -46,7 +48,7 @@ class MainLairIndex extends React.Component {
                 if (lair.type === type && !lairTypeItems[type]){
                     let typeStr = type.charAt(0).toUpperCase() + type.slice(1)
                     lairTypeItems[type] = ( <MainLairTypeIndexItem
-                        key={lairId}
+                        key={`lair-type-${lairId}`}
                         image={lair.image_url}
                         type={typeStr}
                         avgNightlyRate={lairTypePriceAverage[type]}
@@ -56,11 +58,24 @@ class MainLairIndex extends React.Component {
             })
         })
 
+        let randomLairs = samplesize(Object.keys(this.props.lairs), 5);
+        let randomLairItems = randomLairs.map(lairId => {
+            let lair = this.props.lairs[lairId];
+            return (<LairIndexItem 
+                        key={`lair-random${lairId}`} 
+                        lair={lair}   
+                    />)
+        })
         return (
             <div className="lair-index-container">
                 <h2 className="lair-index-type-header">Recommended for you</h2>
                 <ul className='lair-row-container'>
                     {Object.values(lairTypeItems)}
+                </ul>
+
+                <h2 className="lair-index-type-header">Lairs to stay around the world</h2>
+                <ul className='lair-row-container'>
+                    {randomLairItems}
                 </ul>
             </div>
         )

@@ -193,9 +193,9 @@ body {
   align-items: flex-end;
   flex-wrap: wrap; }
 
-.lair-tile {
-  height: 300px;
-  width: 240px;
+.lair-type-tile {
+  height: 250px;
+  width: 180px;
   margin: 0px 15px 15px 0px;
   text-align: center;
   background-size: cover;
@@ -217,5 +217,38 @@ body {
   font-size: 14px;
   color: white;
   text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.8); }
+
+.lair-random-tile {
+  width: 250px;
+  height: 300px;
+  padding: 0px 15px 15px 0px; }
+  .lair-random-tile-image {
+    background-size: cover;
+    width: 250px;
+    height: 200px;
+    border-radius: 3px;
+    background-position-x: center; }
+  .lair-random-tile-description {
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    color: #767676;
+    font-weight: 600;
+    font-size: 12px;
+    padding-top: 5px; }
+  .lair-random-tile-title {
+    color: #4d4d4d;
+    font-size: 20px; }
+  .lair-random-tile-price {
+    font-family: 'Poppins', sans-serif;
+    color: #767676;
+    font-size: 12px; }
+  .lair-random-tile-rating span {
+    color: #767676;
+    padding-left: 5px;
+    font-size: 11px; }
+
+.fa-star {
+  color: #006c70;
+  font-size: 13px; }
 
 /*# sourceMappingURL=output.css.map */
