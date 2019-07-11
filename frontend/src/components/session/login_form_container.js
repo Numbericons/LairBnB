@@ -1,20 +1,26 @@
 import { connect } from 'react-redux';
 import { login } from '../../actions/session_actions';
-import LoginForm from './login_form';
+import AuthForm from './auth_form';
+import { clearErrors } from '../../actions/errors_actions';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return {
-    errors: state.errors
+    formType: "sign in",
+    errors: state.errors,
+    closeComponent: ownProps.closeComponent,
+    switchComponent: ownProps.switchComponent
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    login: user => dispatch(login(user))
+    formCallback: user => dispatch(login(user)),
+    login: user => dispatch(login(user)),
+    clearErrors: () => dispatch(clearErrors())
   }
 }
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(LoginForm);
+)(AuthForm);

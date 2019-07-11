@@ -1,6 +1,6 @@
 import React from 'react';
 import BookingForm from './bookings/booking_form';
-import NavBar from './nav/navbar_container';
+import NavBarContainer from './nav/navbar_container';
 
 class SplashPage extends React.Component {
   constructor(props) {
@@ -11,7 +11,7 @@ class SplashPage extends React.Component {
     return (
       <section>
         <div className="splash-back">
-          <NavBar />
+          <NavBarContainer />
           <BookingForm />          
         </div>
 
