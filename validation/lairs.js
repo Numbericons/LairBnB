@@ -88,8 +88,8 @@ module.exports = function validateLairInput(data) {
     errors.rate = 'Rate field is required';
   }
 
-  if (!Validator.isInt(data.rate, { min: 1000, max: 2000})) {
-    errors.rate = 'Rate must be an integer between 1000 and 2000, inclusive';
+  if (!Validator.isInt(data.rate, { min: 1, max: 100000})) {
+    errors.rate = 'Rate must be an integer between 1 and 100000, inclusive';
   }
   
   if (!Validator.isInt(data.max_guests, { min: 1, max: 16 })) {

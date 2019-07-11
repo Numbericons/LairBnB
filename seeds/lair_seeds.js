@@ -11,7 +11,7 @@ const User = require('../models/User');
 const seedLairs = () => {
   Lair.deleteMany({}, (err) => { console.log(err) });
   return new Promise((res, rej) => {
-
+    
     User.findOne({ username: "Lord Voldemort" })
       .then(user => {
           newLair = new Lair({
@@ -24,7 +24,7 @@ const seedLairs = () => {
             city: "Little Hangleton",
             country: "England",
             rate: 2000,
-            max_guests: 20,
+            max_guests: 16,
             type: "manor",
             owner_id: user.id,
             minions: true,
@@ -97,7 +97,7 @@ const seedLairs = () => {
           city: "Tatooine",
           country: "Outer Rim",
           rate: 1569,
-          max_guests: 50,
+          max_guests: 16,
           type: "spaceship",
           owner_id: user.id,
           wifi: true,
@@ -145,7 +145,7 @@ const seedLairs = () => {
           city: "Wiltshire",
           country: "England",
           rate: 999,
-          max_guests: 25,
+          max_guests: 16,
           type: "manor",
           owner_id: user.id,
           minions: true,
@@ -161,7 +161,7 @@ const seedLairs = () => {
       .then(user => {
         newLair = new Lair({
           name: "Dreadfort",
-          description: "Castle belonging to House Bolton",
+          description: "Castle belonging to House Bolton.",
           image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/lairs/dreadfort_lair.jpeg",
           location: "The North, Westeros",
           lat: 54.369864, 
@@ -229,7 +229,7 @@ const seedLairs = () => {
       .then(user => {
         newLair = new Lair({
           name: "Bob's House",
-          description: "Welcome to Bob's House",
+          description: "Welcome to Bob's House.",
           image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/lairs/stormtrooper_lair.png",
           location: "Alderaan",
           lat: 46.621948, 
@@ -237,7 +237,7 @@ const seedLairs = () => {
           country: "Alderaan",
           rate: 865,
           max_guests: 3,
-          type: "house",
+          type: "spaceship",
           owner_id: user.id,
           wifi: true,
           pool: true
@@ -246,6 +246,221 @@ const seedLairs = () => {
           console.log(`Success: ${lair.name} was created`);
         }, err => { console.log(`${newLair.name} was unable to save due to: ${err}`) })
       })
+
+    User.findOne({ username: "Aragog" })
+      .then(user => {
+        newLair = new Lair({
+          name: "Aragog's Cave",
+          description: "Come into my cave... I won't bite.",
+          image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/lairs/AragogCave.jpg",
+          location: "Forbidden Forest",
+          lat: 51.540956, 
+          lng: -0.553130,
+          country: "England",
+          rate: 1337,
+          max_guests: 16,
+          type: "cave",
+          owner_id: user.id,
+          wifi: true,
+          minions: true,
+          torture_chamber: true
+        })
+        newLair.save().then(lair => {
+          console.log(`Success: ${lair.name} was created`);
+        }, err => { console.log(`${newLair.name} was unable to save due to: ${err}`) })
+      })
+
+    User.findOne({ username: "Frankenstein" })
+      .then(user => {
+        newLair = new Lair({
+          name: "Frankenstein's Castle",
+          description: "Take a ride on the wild side and venture to this castle on the hill. Even Ed Sheeran won't be able to silence your screams of agony.",
+          image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/lairs/frankensteinscastle.jpeg",
+          location: "Muhltal, Germany",
+          lat: 49.793920,
+          lng: 8.668150,
+          country: "Germany",
+          rate: 1999,
+          max_guests: 15,
+          type: "castle",
+          owner_id: user.id,
+          wifi: true,
+          pool: true,
+          minions: true,
+          torture_chamber: true
+        })
+        newLair.save().then(lair => {
+          console.log(`Success: ${lair.name} was created`);
+        }, err => { console.log(`${newLair.name} was unable to save due to: ${err}`) })
+      })
+
+    User.findOne({ username: "Darth Vader" })
+      .then(user => {
+        newLair = new Lair({
+          name: "Death Star II",
+          description: "That's no moon.. It's a space station.",
+          image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/lairs/vader_deathstar.jpeg",
+          location: "Moons of Endor",
+          lat: 37.8970199, 
+          lng: -122.5833064,
+          country: "Space",
+          rate: 456,
+          max_guests: 12,
+          type: "spaceship",
+          owner_id: user.id,
+          wifi: true,
+          minions: true,
+          hero_detector: true,
+          torture_chamber: true
+        })
+        newLair.save().then(lair => {
+          console.log(`Success: ${lair.name} was created`);
+        }, err => { console.log(`${newLair.name} was unable to save due to: ${err}`) })
+      })
+
+    User.findOne({ username: "Hannibal Lecter" })
+      .then(user => {
+        newLair = new Lair({
+          name: "Castle Lecter",
+          description: "Rates are cheap and the capacity is high. bring ALL of your friends.",
+          image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/lairs/vader_deathstar.jpeg",
+          location: "Aukštaitija, Lithuania",
+          lat: 50.464461, 
+          lng: 4.869226,
+          country: "Lithuania",
+          rate: 1,
+          max_guests: 16,
+          type: "castle",
+          owner_id: user.id,
+          wifi: true,
+          torture_chamber: true,
+          pool: true
+        })
+        newLair.save().then(lair => {
+          console.log(`Success: ${lair.name} was created`);
+        }, err => { console.log(`${newLair.name} was unable to save due to: ${err}`) })
+      })
+
+    User.findOne({ username: "Count Dracula" })
+      .then(user => {
+        newLair = new Lair({
+          name: "Dracula's Castle",
+          description: "I am longing to be with you, and by the sea, where we can talk together freely and build our castles in the air.",
+          image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/lairs/draculascastle.jpg",
+          location: "Castelul Bran, Romania",
+          lat: 45.5149022, 
+          lng: 25.364975,
+          country: "Romania",
+          rate: 10,
+          max_guests: 1,
+          type: "castle",
+          owner_id: user.id,
+          torture_chamber: true,
+          pool: true,
+          cemetery: true,
+          minions: true
+        })
+        newLair.save().then(lair => {
+          console.log(`Success: ${lair.name} was created`);
+        }, err => { console.log(`${newLair.name} was unable to save due to: ${err}`) })
+      })
+
+    User.findOne({ username: "Smaug" })
+      .then(user => {
+        newLair = new Lair({
+          name: "Smaug's Gold Horde",
+          description: "All you can carry gold! [But] My armor is like tenfold shields, my teeth are swords, my claws spears, the shock of my tail a thunderbolt, my wings a hurricane, and my breath death!",
+          image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/lairs/smaug_horde_cave.jpg",
+          location: "Hobbiton",
+          lat: -37.8720725,
+          lng: 175.6817922,
+          country: "New Zealand",
+          rate: 9999,
+          max_guests: 10,
+          type: "castle",
+          owner_id: user.id,
+          wifi: true
+        })
+        newLair.save().then(lair => {
+          console.log(`Success: ${lair.name} was created`);
+        }, err => { console.log(`${newLair.name} was unable to save due to: ${err}`) })
+      })
+
+    User.findOne({ username: "Freddy Kreuger" })
+      .then(user => {
+        newLair = new Lair({
+          name: "Elm Street Manor",
+          description: "This elegant home was built in the 1850's. It's complete with beautiful wooden windows, a scarlet red door, and a luxurious front yard. Book now before it's too late!",
+          image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/lairs/kreuger_elmstreet.jpg",
+          location: "Ohio",
+          lat: 41.375273,
+          lng: -83.678690 ,
+          city: "Springwood",
+          country: "United States",
+          rate: 1428,
+          max_guests: 13,
+          type: "manor",
+          owner_id: user.id,
+          torture_chamber: true,
+          wifi: true,
+          cemetery: true,
+        })
+        newLair.save().then(lair => {
+          console.log(`Success: ${lair.name} was created`);
+        }, err => { console.log(`${newLair.name} was unable to save due to: ${err}`) })
+      })
+
+    User.findOne({ username: "Locutus of Borg" })
+      .then(user => {
+        newLair = new Lair({
+          name: "Borg Cube",
+          description: "You will be assimilated.",
+          image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/lairs/borg_cube.jpg",
+          location: "Space",
+          lat: 34.0201613,
+          lng: -118.6919205,
+          city: "Borg Space",
+          country: "Alpha Quadrant",
+          rate: 10110,
+          max_guests: 16,
+          type: "spaceship",
+          owner_id: user.id,
+          torture_chamber: true,
+          wifi: true,
+          hero_detector: true,
+          minions: true,
+          pool: true
+        })
+        newLair.save().then(lair => {
+          console.log(`Success: ${lair.name} was created`);
+        }, err => { console.log(`${newLair.name} was unable to save due to: ${err}`) })
+      })
+
+    User.findOne({ username: "Lich King" })
+      .then(user => {
+        newLair = new Lair({
+          name: "Icecrown Citadel",
+          description: "Air conditioned spire overlooking Icecrown Citadel and Northrend.",
+          image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/lairs/lichkingtower.jpg",
+          location: "Icecrown, Northrend",
+          lat: 33.658250, 
+          lng: -117.767142,
+          city: "Icecrown",
+          country: "Northrend",
+          rate: 75,
+          max_guests: 5,
+          type: "tower",
+          owner_id: user.id,
+          torture_chamber: true,
+          minions: true,
+          wifi: true,
+          cemetary: true
+        })
+        newLair.save().then(lair => {
+          console.log(`Success: ${lair.name} was created`);
+        }, err => { console.log(`${newLair.name} was unable to save due to: ${err}`) })
+      })
+
 
 
   })
