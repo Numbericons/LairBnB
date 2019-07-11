@@ -11,11 +11,7 @@ const User = require('../models/User');
 const seedLairs = () => {
   Lair.deleteMany({}, (err) => { console.log(err) });
   return new Promise((res, rej) => {
-<<<<<<< HEAD
-    
-=======
-sfe
->>>>>>> e889cbd7fa6f20cac0c92b57dd4ffa859dfddfac
+
     User.findOne({ username: "Lord Voldemort" })
       .then(user => {
           newLair = new Lair({
@@ -77,7 +73,7 @@ sfe
           country: "United States",
           rate: 1000,
           max_guests: 10,
-          type: "warehouse",
+          type: "manor",
           owner_id: user.id,
           minions: true,
           hero_detector: true,
@@ -192,7 +188,7 @@ sfe
           location: "Mordor",
           lat: -39.156699,
           lng: 175.632141,
-          country: "Mordor",
+          country: "Middle-Earth",
           rate: 2870,
           max_guests: 12,
           type: "tower",
@@ -215,7 +211,7 @@ sfe
           location: "Mordor",
           lat: -39.156696, 
           lng: 175.632138,
-          country: "Mordor",
+          country: "Middle-Earth",
           rate: 4249,
           max_guests: 12,
           type: "tower",
@@ -281,7 +277,7 @@ sfe
           description: "Take a ride on the wild side and venture to this castle on the hill. Even Ed Sheeran won't be able to silence your screams of agony.",
           image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/lairs/frankensteinscastle.jpeg",
           location: "Muhltal, Germany",
-          lat: 49.793920, 8.668150
+          lat: 49.793920,
           lng: 8.668150,
           country: "Germany",
           rate: 1999,
@@ -393,7 +389,7 @@ sfe
     User.findOne({ username: "Freddy Kreuger" })
       .then(user => {
         newLair = new Lair({
-          name: "Elm Street Manor"
+          name: "Elm Street Manor",
           description: "This elegant home was built in the 1850's. It's complete with beautiful wooden windows, a scarlet red door, and a luxurious front yard. Book now before it's too late!",
           image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/lairs/kreuger_elmstreet.jpg",
           location: "Ohio",
@@ -406,7 +402,7 @@ sfe
           type: "manor",
           owner_id: user.id,
           torture_chamber: true,
-          wifi: true
+          wifi: true,
           cemetery: true,
         })
         newLair.save().then(lair => {
@@ -417,7 +413,7 @@ sfe
     User.findOne({ username: "Locutus of Borg" })
       .then(user => {
         newLair = new Lair({
-          name: "Borg Cube"
+          name: "Borg Cube",
           description: "You will be assimilated.",
           image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/lairs/borg_cube.jpg",
           location: "Space",
@@ -430,7 +426,7 @@ sfe
           type: "spaceship",
           owner_id: user.id,
           torture_chamber: true,
-          wifi: true
+          wifi: true,
           hero_detector: true,
           minions: true,
           pool: true
@@ -443,7 +439,7 @@ sfe
     User.findOne({ username: "Lich King" })
       .then(user => {
         newLair = new Lair({
-          name: "Icecrown Citadel"
+          name: "Icecrown Citadel",
           description: "Air conditioned spire overlooking Icecrown Citadel and Northrend.",
           image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/lairs/lichkingtower.jpg",
           location: "Icecrown, Northrend",
@@ -459,6 +455,139 @@ sfe
           minions: true,
           wifi: true,
           cemetary: true
+        })
+        newLair.save().then(lair => {
+          console.log(`Success: ${lair.name} was created`);
+        }, err => { console.log(`${newLair.name} was unable to save due to: ${err}`) })
+      })
+
+    User.findOne({ username: "Lysa Arryn" })
+      .then(user => {
+        newLair = new Lair({
+          name: "The Moon Tower",
+          description: "Spacious halls high atop the Mountains of the Moon. Mind the Moon Door.",
+          image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/lairs/Lyssa_The_Eyrie_(Viewer's_Guide).png",
+          location: "The Eyrie",
+          lat: 39.7217044,
+          lng: 21.6284009,
+          city: "Vale of Arryn",
+          country: "Westeros",
+          rate: 3000,
+          max_guests: 9,
+          type: "tower",
+          owner_id: user.id,
+          torture_chamber: true
+        })
+        newLair.save().then(lair => {
+          console.log(`Success: ${lair.name} was created`);
+        }, err => { console.log(`${newLair.name} was unable to save due to: ${err}`) })
+      })
+
+    User.findOne({ username: "Kristatos" })
+      .then(user => {
+        newLair = new Lair({
+          name: "St. Cyril's Monestary",
+          description: "This monestary/manor atop a mountain will surely get your blood pumping. Enjoy the spacious interior and don't mind my henchmen smugg... moving items in and around the manor.",
+          image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/lairs/st.+cyril's+Monastery.jpg",
+          location: "Peneas Valley, Greece",
+          lat: 39.7217047,
+          lng: 21.6284006,
+          city: "Peneas Valley",
+          country: "Greece",
+          rate: 5001,
+          max_guests: 15,
+          type: "manor",
+          owner_id: user.id,
+          pool: true,
+          wifi: true
+        })
+        newLair.save().then(lair => {
+          console.log(`Success: ${lair.name} was created`);
+        }, err => { console.log(`${newLair.name} was unable to save due to: ${err}`) })
+      })
+
+    User.findOne({ username: "A Shadow" })
+      .then(user => {
+        newLair = new Lair({
+          name: "Shadow Dreadnaught",
+          description: "If you go to Z'ha'dum, you will die.",
+          image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/lairs/shadow_ship.jpg",
+          location: "Z'ha'dum",
+          lat: 39.7217047,
+          lng: 21.6284006,
+          country: "Lorien's Home",
+          rate: 132,
+          max_guests: 1,
+          type: "spaceship",
+          owner_id: user.id,
+          wifi: true,
+          hero_detector: true,
+          torture_chamber: true
+      })
+      newLair.save().then(lair => {
+        console.log(`Success: ${lair.name} was created`);
+      }, err => { console.log(`${newLair.name} was unable to save due to: ${err}`) })
+    })
+
+
+    User.findOne({ username: "Gollum" })
+      .then(user => {
+        newLair = new Lair({
+          name: "Gollum's Cave",
+          description: "No one may enter my cave unless they have my precious",
+          image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/lairs/gollumsCave.jpeg",
+          location: "Misty Mountain",
+          lat: 25.304603, 
+          lng: 110.273657,
+          country: "Middle-Earth",
+          rate: 1,
+          max_guests: 1,
+          type: "cave",
+          owner_id: user.id,
+          pool: true,
+          torture_chamber: true
+        })
+        newLair.save().then(lair => {
+          console.log(`Success: ${lair.name} was created`);
+        }, err => { console.log(`${newLair.name} was unable to save due to: ${err}`) })
+      })
+
+    User.findOne({ username: "Balrog" })
+      .then(user => {
+        newLair = new Lair({
+          name: "Khazad-dûm",
+          description: "Cozy hideaway, situated in the ruins of the Dwarrowdelf underground kingdom, beneath the magnificent Misty Mountains.",
+          image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/lairs/BalrogKhazadDum.jpg",
+          location: "Moria",
+          lat: -45.053891, 
+          lng: 168.814304,
+          country: "Middle-Earth",
+          rate: 1313,
+          max_guests: 13,
+          type: "cave",
+          owner_id: user.id,
+          torture_chamber: true
+        })
+        newLair.save().then(lair => {
+          console.log(`Success: ${lair.name} was created`);
+        }, err => { console.log(`${newLair.name} was unable to save due to: ${err}`) })
+      })
+
+    User.findOne({ username: "Francisco Scaramanga" })
+      .then(user => {
+        newLair = new Lair({
+          name: "Thai Island",
+          description: "Beautiful tower atop a Thai karst.",
+          image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/lairs/thai+island.jpg",
+          location: "Khao Phing Kan",
+          lat: 8.2746301,
+          lng: 98.4986943,17,
+          country: "Thailand",
+          rate: 3333,
+          max_guests: 2,
+          type: "tower",
+          owner_id: user.id,
+          torture_chamber: true
         })
         newLair.save().then(lair => {
           console.log(`Success: ${lair.name} was created`);

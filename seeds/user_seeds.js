@@ -213,6 +213,66 @@ const seedUsers = () => {
       })
     );
 
+    userArray.push(
+      new User({
+        username: "Lysa Arryn",
+        email: "vale@tully.com",
+        image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/villains/Lysa+Arryn.jpeg",
+        password: "isoball",
+        host_description: "A man will tell you poison is dishonorable, but a woman's honor is different. The Mother shaped us to protect our children, and our only dishonor is in failure."
+      })
+    );
+
+    userArray.push(
+      new User({
+        username: "Kristatos",
+        email: "bestSmugglerEver@jamesBond.com",
+        image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/villains/kristatosJamesBond.jpg",
+        password: "BONDmustDIE",
+        host_description: "I'm a suave, smart smuggler. In my free time I enjoy playing scrabble."
+      })
+    );
+
+    userArray.push(
+      new User({
+        username: "A Shadow",
+        email: "chaos@firstones.gov",
+        image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/villains/shadow.jpg",
+        password: "whatdoyouwant",
+        host_description: "All life is transitory. A dream. We all come together in the same place at the end of time. If I don't see you again here, I will see you in a little while, in the place where no shadows fall."
+      })
+    );
+
+    userArray.push(
+      new User({
+        username: "Gollum",
+        email: "myprecious@onering.com",
+        image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/villains/gollum.jpeg",
+        password: "myprecious",
+        host_description: "My Precioussss!"
+      })
+    );
+
+    userArray.push(
+      new User({
+        username: "Balrog", 
+        email: "iShallPass@bridge.com",
+        image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/villains/Balrog.jpeg",
+        password: "gandalf_sux",
+        host_description: "Nothing can stand in my way!"
+      })
+    );
+
+    userArray.push(
+      new User({
+        username: "Francisco Scaramanga",
+        email: "oneshot@onekill.edu",
+        image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/villains/Francisco_Scaramanga_(Christopher_Lee)_-_Profile.png",
+        password: "neverunderestimate",
+        host_description: "Mr. Fat has just resigned. I am the new Chairman of the Board. [he goes outside, looks over at Fat's family tomb] He always did like that mausoleum. Put him in it."
+      })
+    );
+
     for (let i=0, fin=userArray.length; i < fin; i++) {
       const user = userArray[i];
       bcrypt.genSalt(10, (err, salt) => {
