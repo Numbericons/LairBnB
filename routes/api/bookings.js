@@ -7,21 +7,21 @@ const Booking = require('../../models/Booking');
 const validateBookingInput = require('../../validation/bookings');
 
 //get all bookings
-router.get('/api/bookings', (req, res) => {
+router.get('/', (req, res) => {
     Booking.find()
         .then(bookings => res.json(bookings))
         .catch(err => res.status(404).json({nobookingsfound: 'No bookings found'}))
 })
 
 //get one booking
-router.get('/api/bookings/:booking_id', (req, res) => {
+router.get('/:booking_id', (req, res) => {
     Booking.find({id: req.params.booking_id})
         .then(booking => res.json(booking))
         .catch(err => res.status(404).json({nobookingsfound: 'That booking was not found'}))
 })
 
 //create a booking
-router.post('/api/bookings', 
+router.post('/', 
     passport.authenticate('jwt', { session: false }), 
     (req, res) => {
         const { errors, isValid } = validateBookingInput(req.body);
@@ -42,7 +42,7 @@ router.post('/api/bookings',
 })
 
 //delete a booking
-router.delete('/api/bookings/:booking_id', 
+router.delete('/:booking_id', 
     passport.authenticate('jwt', { session: false }), 
     (req, res) => {
         Booking.find({id: req.params.booking_id})
@@ -50,13 +50,13 @@ router.delete('/api/bookings/:booking_id',
                                 .then(function(){return res.sendStatus(204)})
                                 .catch(err => res.json(err))
                             })
-            .catch(err => res.status(404)json({nobookingsfound: 'That booking was not found'}))
+            .catch(err => res.status(404).json({nobookingsfound: 'That booking was not found'}))
     
 })
 
 
 //patch an already existing booking. can only update num_guests, arrival or departure date
-router.put('/api/bookings/:booking_id', 
+router.put('/:booking_id', 
     passport.authenticate('jwt', { session: false }), 
     (req, res) => {
         Booking.find({id: req.params.booking_id})
@@ -69,7 +69,7 @@ router.put('/api/bookings/:booking_id',
                     .then(booking => res.json(booking))
                     .catch(err => res.json(err))
             })
-            .catch(err => res.status(404)json({nobookingsfound: 'That booking was not found'}))
+            .catch(err => res.status(404).json({nobookingsfound: 'That booking was not found'}))
     })
 
 module.exports = router;

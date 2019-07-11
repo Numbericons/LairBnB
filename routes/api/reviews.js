@@ -46,7 +46,7 @@ router.delete('/api/reviews/:id',
                 .then(function(){return res.sendStatus(204)})
                 .catch(err => res.json(err))
             })
-            .catch(err => res.status(404)json({noreviewsfound: 'That review was not found'}))
+            .catch(err => res.status(404).json({noreviewsfound: 'That review was not found'}))
     
 })
 

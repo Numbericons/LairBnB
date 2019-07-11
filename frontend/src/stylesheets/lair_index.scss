@@ -1,0 +1,120 @@
+@font-face {
+    font-family: "Blacksword";
+    src: url('../assets/fonts/Blacksword.woff') format('woff');
+}
+
+.lair-index-container {
+    padding: 50px;
+}
+
+.lair-index {
+    &-header {
+        color: #484848;
+        font-weight: 600;
+        font-size: 25px;
+    }
+    &-sub-header {
+        font-family: 'Poppins', sans-serif;
+        color: rgb(100, 100, 100);
+        font-weight: 500;
+        margin: 0;
+        font-size: 15px;
+    }
+    &-plus-image {
+        width: 100%;
+        height: 300px;
+        background-image: url('https://lairbnb-dev.s3.us-east-2.amazonaws.com/lairs/kylo_ren_lair.png');
+        background-size: cover;
+        border-radius: 3px;
+        background-position-y: center;
+        margin-top: 10px;
+    }
+    &-plus-text {
+        font-family: 'Blacksword';
+        font-size: 50px;
+        font-weight: 500;
+        margin: 0 auto;
+        text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.8);
+        text-align: center;
+        padding: 90px;
+    }
+}
+
+.lair-row-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    padding: 15px 0px 15px 0px;
+}
+
+.lair-type-tile {
+    height: 250px;
+    width: 180px;
+    margin: 0px 15px 15px 0px;
+    text-align: center;
+    background-size: cover;
+    background-position-x: center;
+    border-radius: 3px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.lair-info {
+    height: 50px;
+}
+
+.lair-type {
+    font-size: 18px;
+    color: white;
+    text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.8);
+}
+
+.lair-rate {
+    font-size: 14px;
+    color: white;
+    text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.8);
+}
+
+.lair-random-tile {
+    width: 250px;
+    height: 300px;
+    padding: 0px 15px 15px 0px;
+    &-image{
+        background-size: cover;
+        width: 250px;
+        height: 200px;
+        border-radius: 3px;
+        background-position-x: center;
+    }
+    &-description{
+        font-family: 'Poppins', sans-serif;
+        text-transform: uppercase;
+        color: rgb(118, 118, 118);
+        font-weight: 600;
+        font-size: 12px;
+        padding-top: 5px;
+    }
+    &-title{
+        color: rgb(77, 77, 77);
+        font-size: 20px;
+    }
+    &-price{
+        font-family: 'Poppins', sans-serif;
+        color: rgb(118, 118, 118);
+        font-size: 12px;
+    }
+    &-rating{
+        span {
+            color: rgb(118, 118, 118);
+            padding-left: 5px;
+            font-size: 11px;
+        }
+    }
+}
+
+.fa-star {
+    color: #006c70;
+    font-size: 13px;
+}

@@ -6,13 +6,21 @@ const passport = require('passport');
 const Lair = require('../../models/Lair');
 const validateLairInput = require('../../validation/lairs');
 
-router.get('/api/lairs', (req, res) => {
+router.get('/', (req, res) => {
     Lair.find()
-        .then(lairs => res.json(lairs))
+        .lean()
+        .then(lairs => {
+            const newLairs = {};
+            lairs.forEach( lair => {
+                const id = lair._id.id.join("")
+                newLairs[id] = lair;
+            })
+            res.json(newLairs)
+        })
         .catch(err => res.status(404).json({nolairsfound: 'No lairs found'}))
 })
 
-router.get('/api/lairs/:lair_id', (req, res) => {
+router.get('/:lair_id', (req, res) => {
     Lair.find({id: req.params.lair_id})
         .then(lair => res.json(lair))
         .catch(err => res.status(404).json({nolairsfound: 'That lair was not found'}))

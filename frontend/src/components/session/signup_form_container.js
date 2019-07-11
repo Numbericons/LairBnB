@@ -1,21 +1,26 @@
 import { connect } from 'react-redux';
-import { signup } from '../../actions/session_actions';
-import SignupForm from './signup_form';
+import { signup, login } from '../../actions/session_actions';
+import AuthForm from './auth_form';
+import { clearErrors } from '../../actions/errors_actions';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return {
-    signedIn: state.session.isSignedIn,
-    errors: state.errors.session
+    formType: "sign up",
+    errors: state.errors,
+    closeComponent: ownProps.closeComponent,
+    switchComponent: ownProps.switchComponent
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    signup: user => dispatch(signup(user))
+    formCallback: user => dispatch(signup(user)),
+    login: user => dispatch(login(user)),
+    clearErrors: () => dispatch(clearErrors())
   }
 }
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(SignupForm);
+)(AuthForm);
