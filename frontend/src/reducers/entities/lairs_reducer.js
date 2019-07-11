@@ -1,4 +1,4 @@
-import { RECEIVE_ALL_LAIRS } from '../actions/lairs_actions';
+import { RECEIVE_ALL_LAIRS } from '../../actions/lairs_actions';
 
 const lairsReducer = (state = {}, action) => {
     Object.freeze(state);
