@@ -8,7 +8,7 @@ const lairsReducer = (state = {}, action) => {
         case RECEIVE_ALL_LAIRS:
             return action.lairs.data;
         case RECEIVE_ONE_LAIR:
-            const newLair = { [action.lair.id]: action.lair };
+            const newLair = { [action.lair._id]: action.lair };
             return merge({}, state, newLair);
         default:
             return state;

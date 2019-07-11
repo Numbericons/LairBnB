@@ -5,6 +5,7 @@ import LairShow from './lair_show';
 const msp = (state, ownProps) => {
     return ({
         lair: state.entities.lairs[ownProps.match.params.lair_id]
+        // user: Object.values(state.entities.users)[0]
     })
 }
 

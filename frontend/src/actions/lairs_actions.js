@@ -1,4 +1,4 @@
-import {getLairs, getLair} from '../util/lair_api_util';
+import { getLairs, getLair } from '../util/lair_api_util';
 export const RECEIVE_ALL_LAIRS = "RECEIVE_ALL_LAIRS";
 export const RECEIVE_ONE_LAIR = "RECEIVE_ONE_LAIR";
 
@@ -23,5 +23,5 @@ export const fetchLairs = () => (dispatch) => {
 
 export const fetchLair = (id) => (dispatch) => {
     getLair(id)
-        .then(lair => dispatch(receiveLair(lair)))
+        .then(lair => dispatch(receiveLair(lair.data)))
 }

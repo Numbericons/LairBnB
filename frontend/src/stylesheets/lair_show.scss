@@ -1,0 +1,30 @@
+.show-img {
+    height: 600px;
+    width: 100%;
+}
+
+.lair-name {
+    font-size: 32px;
+    font-weight: 800;
+    color: #484848;
+    font-family: 'Poppins', sans-serif;
+}
+
+.lair-location {
+    font-size: 16px;
+    color: #484848;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}
+
+.lair-description {
+    font-size: 16px;
+    color: #484848;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}
+
+.amenities {
+    display: flex;
+    justify-content: space-between;
+}
