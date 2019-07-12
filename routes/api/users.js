@@ -18,6 +18,28 @@ router.get('/current', passport.authenticate('jwt', {session: false}), (req, res
     });
   })
 
+router.get('/:user_id', (req, res) => {
+  User.findById(req.params.user_id)
+    .then(user => {
+      return res.json(user);
+    })
+})
+
+router.patch('/edit', (req, res) => {
+  User.findById(req.body.id)
+    .then(user => {
+        user.host_description = req.body.host_description;
+        user.save()
+          .then(user => {
+            return res.json(user);
+          }, err => {
+            console.log(err);
+          });
+    }).catch(err => {
+      return res.status(404).json({user: "User not found"})
+    })
+})
+
 //sign up a user
 router.post('/register', (req, res) => {
   const { errors, isValid } = validateRegisterInput(req.body);
