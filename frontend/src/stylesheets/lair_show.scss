@@ -3,9 +3,14 @@
     width: 100%;
 }
 
+.lair-items-container {
+    width: 600px;
+    padding-left: 200px;
+}
+
 .lair-name {
     font-size: 32px;
-    font-weight: 800;
+    font-weight: 500;
     color: #484848;
     font-family: 'Poppins', sans-serif;
 }
@@ -24,7 +29,18 @@
     font-weight: 400;
 }
 
+.single-amenity {
+
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 100px;
+    padding-left: 2px;
+}
+
 .amenities {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    font-size: 16px;
+    color: #484848;
+    font-family: 'Poppins', sans-serif;
 }

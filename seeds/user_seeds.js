@@ -137,7 +137,7 @@ const seedUsers = () => {
       new User({
         username: "Frankenstein",
         email: "F34RL355@yahoo.com",
-        image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/villains/Aragog.jpg",
+        image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/villains/frankenstein.jpeg",
         password: "ElizabethLavenza",
         host_description: "Beware; for I am fearless, and therefore powerful."
       })

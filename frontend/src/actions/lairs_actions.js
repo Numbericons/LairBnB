@@ -22,6 +22,6 @@ export const fetchLairs = () => (dispatch) => {
 }
 
 export const fetchLair = (id) => (dispatch) => {
-    getLair(id)
+    return getLair(id)
         .then(lair => dispatch(receiveLair(lair.data)))
 }
