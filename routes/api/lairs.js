@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
         .then(lairs => {
             const newLairs = {};
             lairs.forEach( lair => {
-                const id = lair._id.id.join("")
+                const id = lair._id//.id.join("")
                 newLairs[id] = lair;
             })
             res.json(newLairs)
@@ -21,8 +21,11 @@ router.get('/', (req, res) => {
 })
 
 router.get('/:lair_id', (req, res) => {
-    Lair.find({id: req.params.lair_id})
-        .then(lair => res.json(lair))
+    Lair.findById(req.params.lair_id)
+        .lean()
+        .then(lair => {
+            return res.json(lair)
+            })
         .catch(err => res.status(404).json({nolairsfound: 'That lair was not found'}))
 })
 
