@@ -1,5 +1,5 @@
 import React from 'react';
-
+import LairIndexItem from '../lairs/lair_index_item';
 
 class UserShow extends React.Component {
   constructor(props) {
@@ -36,6 +36,9 @@ class UserShow extends React.Component {
           loading: false
         });
       });
+    if (this.props.lairs.length === 0) {
+      this.props.fetchLairs();
+    }
   }
 
   componentDidUpdate() {
@@ -101,25 +104,28 @@ class UserShow extends React.Component {
   displayFormOrBlurb() {
     if (this.state.editMode && this.props.user.id === this.props.currentUser.id) {
       return (
-        <form>
-          <label>
+        <form className="user-profile-edit-container">
+          <label className="user-profile-edit-header">
             About
-            <textarea
-              className="host-description-textarea"
-              value={this.state.host_description}
-              onChange={this.changeInput("host_description")}
-            />
           </label>
-          <button
-            onClick={this.handleSubmit}
-          >
-            Save
-          </button>
-          <button
-            onClick={this.switchMode}
-          >
-            Cancel
-          </button>
+          <textarea
+            className="host-description-textarea"
+            value={this.state.host_description}
+            onChange={this.changeInput("host_description")}
+          />
+          <div>
+            <input
+              type="submit"
+              onClick={this.handleSubmit}
+              value="Save"
+            />
+            <button
+              className="teal-link"
+              onClick={this.switchMode}
+            >
+              Cancel
+            </button>
+          </div>
         </form>
       )
     } else {
@@ -136,7 +142,15 @@ class UserShow extends React.Component {
   }
 
   displayListings() {
-
+    if (this.props.lairs.length === 0) {
+      return <p>This user has no listings yet.</p>
+    } else {
+      return (
+        <ul className="user-profile-listings">
+          {this.props.lairs.map(lair => <LairIndexItem key={`user-lair-${lair.id}`} lair={lair} />)}
+        </ul>
+      )
+    }
   }
 
   render() {
@@ -193,10 +207,10 @@ class UserShow extends React.Component {
             )}
           </div>
           {this.displayFormOrBlurb()}
-          <h3>
+          <h3 className="user-profile-sub-header">
             {this.props.user.username}'s listings
           </h3>
-          {/* {this.displayListings()} */}
+          {this.displayListings()}
         </div>
       </section>
     )

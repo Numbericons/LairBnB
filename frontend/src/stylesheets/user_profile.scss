@@ -1,6 +1,5 @@
 .user-profile-container {
-    // padding: 100px;
-    margin-top: 40px;
+    margin: 40px;
     display: flex;
     justify-content: center;
 }
@@ -93,8 +92,52 @@
 
 
 .host-description-textarea {
-    width: 300px;
-    height: 200px;
-    border: 1px solid pink;
+    width: 575px;
+    height: 100px;
+    border: 1px solid rgb(235,235,235);
     resize: vertical;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 5px;
+}
+.host-description-textarea:focus {
+    border: 1px solid #008489;
+}
+
+.user-profile{
+    &-listings {
+        display: flex;
+        flex-direction: row;
+    }
+    &-sub-header {
+        font-family: 'Poppins';
+        font-size: 23px;
+        color: #484848;
+        font-weight: 600;
+    }
+}
+
+.user-profile-edit {
+    &-container {
+        padding: 15px 0px 15px 0px;
+        display: flex;
+        flex-direction: column;
+    }
+    &-header {
+        // font-family: 'Poppins';
+        font-size: 17px;
+        color: #484848;
+        font-weight: 600;
+    }
+}
+
+input[type="submit"] {
+    color: white;
+    background-color: #008489;
+    width: 75px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 4px;
+    margin-right: 10px;
 }

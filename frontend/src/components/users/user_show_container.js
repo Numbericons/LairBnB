@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { editUser, fetchUser } from '../../actions/session_actions';
+import { fetchLairs } from '../../actions/lairs_actions';
 import UserShow from './user_show';
 import { selectLairsByUserId } from '../selectors/selector';
 
@@ -16,7 +17,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     editUser: user => dispatch(editUser(user)),
-    fetchUser: id => dispatch(fetchUser(id))
+    fetchUser: id => dispatch(fetchUser(id)),
+    fetchLairs: () => dispatch(fetchLairs())
   }
 }
 
