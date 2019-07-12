@@ -5,16 +5,40 @@ import { receiveErrors } from './errors_actions';
 
 export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 export const RECEIVE_USER_LOGOUT = "RECEIVE_USER_LOGOUT";
+export const RECEIVE_A_USER = "RECEIVE_A_USER";
 
 export const receiveCurrentUser = currentUser => ({
     type: RECEIVE_CURRENT_USER,
     currentUser
 });
 
+export const receiveAUser = user => ({
+    type: RECEIVE_A_USER,
+    user
+});
+
 
 export const logoutUser = () => ({
     type: RECEIVE_USER_LOGOUT
 });
+
+export const fetchUser = id => dispatch => {
+    return APIUtil.getUser(id)
+        .then(user => {
+            const { _id, email, username, image_url, host_description } = user.data;
+            const id = _id;
+            return dispatch(receiveAUser({ id, email, username, image_url, host_description }))
+        })
+}
+
+export const editUser = (user) => dispatch => {
+    return APIUtil.patchUser(user)
+        .then(user => {
+            const { _id, email, username, image_url, host_description } = user.data;
+            const id = _id;
+            return dispatch(receiveCurrentUser({ id, email, username, image_url, host_description }))
+        })
+};
 
 export const signup = user => dispatch => (
     APIUtil.signup(user).then((res) => {

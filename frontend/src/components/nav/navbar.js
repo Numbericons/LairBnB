@@ -1,4 +1,5 @@
 import React from 'react';
+import {withRouter} from 'react-router-dom';
 import LogInContainer from '../session/login_form_container';
 import SignUpContainer from '../session/signup_form_container';
 
@@ -6,18 +7,24 @@ class NavBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      modal: "",
-      showUserDropdown: false
+      modal: ""
     };
     this.logoutUser = this.logoutUser.bind(this);
     this.toggleUserDropdown = this.toggleUserDropdown.bind(this);
     this.handleClickOutside = this.handleClickOutside.bind(this);
+    this.goToUserShow = this.goToUserShow.bind(this);
+  }
+
+  goToUserShow() {
+    this.toggleUserDropdown();
+    this.props.history.push(`/users/show/${this.props.currentUser.id}`);
   }
 
   logoutUser(e) {
       e.preventDefault();
       this.toggleUserDropdown();
       this.props.logout();
+      // this.props.history.push("/");
   }
 
   toggleUserDropdown(event) {
@@ -32,6 +39,19 @@ class NavBar extends React.Component {
 
   componentDidMount() {
     this.inside = document.getElementById("user-dropdown");
+    let input = document.getElementById('nav-search-bar');
+    if (input) {
+      this.autocomplete = new window.google.maps.places.Autocomplete(input);
+    }
+  }
+
+  componentDidUpdate() {
+    if (this.props.currentUser && !this.autocomplete) {
+      let input = document.getElementById('nav-search-bar');
+      if (input) {
+        this.autocomplete = new window.google.maps.places.Autocomplete(input);
+      }
+    }
   }
 
   componentWillUnmount() {
@@ -115,34 +135,56 @@ class NavBar extends React.Component {
       )
     }
   }
-  
-  render() {
+  displaySearchInput() {
+    if ((this.props.location.pathname !== "/" || this.props.currentUser) && !this.props.location.pathname.startsWith("/users/show")) {
       return (
-        <div className="nav-splash-container">
+        <div>
+          <i className="fas fa-search" />
+          <input
+            id="nav-search-bar"
+            className="nav-search"
+            placeholder='Try "Mordor"'
+          />
+        </div>
+      )
+    }
+  }
+  render() {
+    const navSplashClass = this.props.location.pathname === "/" && !this.props.currentUser ? (
+      "nav-container nav-splash"
+      ):(
+      "nav-container nav-nonsplash"
+    );
+    return (
+      <div className={navSplashClass}>
+        <div className="nav-left">
           <a href="#/">
             <i className="fab fa-airbnb"></i>
           </a>
-          {this.getLinks()}
-          <ul
-            id="user-dropdown"
-            className="hidden"
-          >
-            <li
-              className="user-dropdown-lis"
-            >
-              Profile
-            </li>
-            <li
-              className="user-dropdown-lis"
-              onClick={this.logoutUser}
-            >
-              Log Out
-            </li>
-          </ul>
-          {this.showModal()}
+          {this.displaySearchInput()}              
         </div>
-      );
+        {this.getLinks()}
+        <ul
+          id="user-dropdown"
+          className="hidden"
+        >
+          <li
+            className="user-dropdown-lis"
+            onClick={this.goToUserShow}
+          >
+            Profile
+          </li>
+          <li
+            className="user-dropdown-lis"
+            onClick={this.logoutUser}
+          >
+            Log Out
+          </li>
+        </ul>
+        {this.showModal()}
+      </div>
+    );
   }
 }
 
-export default NavBar;
+export default withRouter(NavBar);

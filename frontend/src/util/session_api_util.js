@@ -15,3 +15,11 @@ export const signup = (userData) => {
 export const login = (userData) => {
   return axios.post('/api/users/login', userData);
 };
+
+export const patchUser = (user) => {
+  return axios.patch('/api/users/edit', user);
+};
+
+export const getUser = id => {
+  return axios.get(`/api/users/${id}`);
+}
