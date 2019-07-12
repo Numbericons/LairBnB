@@ -40,7 +40,7 @@ const seedLairs = () => {
         newLair = new Lair({
           name: "Cave of Jaws",
           description: "My hideaway.",
-          image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/lairs/jaws_james_bond_lair.jpg",
+          image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/lairs/jaws_james_bond_lair2.jpg",
           location: "Costa Smeralda, Sardinia",
           lat: 41.0858,
           lng: 9.4494,
