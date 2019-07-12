@@ -25,20 +25,21 @@ router.post('/',
     passport.authenticate('jwt', { session: false }), 
     (req, res) => {
         const { errors, isValid } = validateBookingInput(req.body);
-
         if (!isValid) {
             return res.status(400).json(errors);
         }
 
         const newBooking = new Booking({
-            lair_id: req.lair.id,
-            guest_id: req.user.id,
+            lair_id: req.body.lair_id,
+            guest_id: req.body.guest_id,
             num_guests: req.body.num_guests,
             arrival_date: req.body.arrival_date,
             departure_date: req.body.departure_date
         })
 
-        newBooking.save().then(booking => res.json(booking));
+        return newBooking.save().then(booking => {
+            res.json(booking);
+        })
 })
 
 //delete a booking

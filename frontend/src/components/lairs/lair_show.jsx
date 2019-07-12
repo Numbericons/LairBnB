@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ReserveForm from '../bookings/reserve_form';
 
 class LairShow extends React.Component {
     constructor(props) {
@@ -118,56 +119,62 @@ class LairShow extends React.Component {
             <div className="show-img-container">
                 <img className="show-img"  src={lair.image_url} />
             </div>
-            <div className="lair-items-container">
-              <div className="lair-user-container">
-                <div className="lair-name-location">
-                  <div className="lair-name">{lair.name}</div>
-                  <div className="lair-location">{lair.location}</div>
+            <div className='lair-detail-container'>
+                <div className="lair-items-container">
+                <div className="lair-user-container">
+                    <div className="lair-name-location">
+                    <div className="lair-name">{lair.name}</div>
+                    <div className="lair-location">{lair.location}</div>
+                    </div>
+                    <div className="user-image-name-container">
+                        <Link to={`/users/show/${user.id}`}>
+                            <img className='user-pic' src={user.image_url}/>
+                        </Link>
+                        <div className='user-username'>{user.username}</div>
+                    </div>
                 </div>
-                <div className="user-image-name-container">
-                    <Link to={`/users/show/${user.id}`}>
-                        <img className='user-pic' src={user.image_url}/>
-                    </Link>
-                    <div className='user-username'>{user.username}</div>
+                <div className="about-lair-container">
+                    <div className="about-lair-title">
+                        <i className="fas fa-home"></i>
+                        <p className="about-lair-title-text">Entire Lair</p>
+                    </div>
+                    <p className="about-lair-description">{lair.max_guests} guests</p>
+                    <div className="about-lair-title">
+                        <i className="fas fa-medal"></i>
+                        <p className="about-lair-title-text">{user.username} is a Supervillain</p>
+                    </div>
+                    <p className="about-lair-description">Supervillains are experienced, highly infamous villains who are committed to providing horrendous experiences for guests.</p>
+                    <div className="about-lair-title">
+                        <i className="fas fa-ghost"></i>
+                        <p className="about-lair-title-text">Eerie presence</p>
+                    </div>
+                    <p className="about-lair-description">13 recent guests said this place had an eerie presence to it.</p>
+                    <div className="about-lair-title">
+                        <i className="fas fa-map-marker-alt"></i>
+                        <p className="about-lair-title-text">Great location</p>
+                    </div>
+                    <p className="about-lair-description">100% of recent guests gave the location a 5-star rating.</p>
                 </div>
-              </div>
-              <div className="about-lair-container">
-                  <div className="about-lair-title">
-                    <i className="fas fa-home"></i>
-                    <p className="about-lair-title-text">Entire Lair</p>
-                  </div>
-                  <p className="about-lair-description">{lair.max_guests} guests</p>
-                  <div className="about-lair-title">
-                    <i className="fas fa-medal"></i>
-                    <p className="about-lair-title-text">{user.username} is a Supervillain</p>
-                  </div>
-                  <p className="about-lair-description">Supervillains are experienced, highly infamous villains who are committed to providing horrendous experiences for guests.</p>
-                  <div className="about-lair-title">
-                    <i className="fas fa-ghost"></i>
-                    <p className="about-lair-title-text">Eerie presence</p>
-                  </div>
-                  <p className="about-lair-description">13 recent guests said this place had an eerie presence to it.</p>
-                  <div className="about-lair-title">
-                    <i className="fas fa-map-marker-alt"></i>
-                    <p className="about-lair-title-text">Great location</p>
-                  </div>
-                  <p className="about-lair-description">100% of recent guests gave the location a 5-star rating.</p>
-              </div>
-                <div className="user-profile-left-line">
-                    <div className="line"></div>
+                    <div className="user-profile-left-line">
+                        <div className="line"></div>
+                    </div>
+                <div className="lair-description">{lair.description}</div>
+                    <div className="user-profile-left-line">
+                        <div className="line"></div>
+                    </div>
+                <div className="amenities-container">
+                    <div className="amenities-header">Amenities</div>
+                    <div className="amenities">
+                    {this.amenityArr()}
+                    </div>
                 </div>
-              <div className="lair-description">{lair.description}</div>
-                <div className="user-profile-left-line">
-                    <div className="line"></div>
                 </div>
-              <div className="amenities-container">
-                <div className="amenities-header">Amenities</div>
-                <div className="amenities">
-                  {this.amenityArr()}
-                </div>
-              </div>
+                <ReserveForm
+                    key={`reserve-form${lair.id}`}
+                    lair={lair}
+                />
             </div>
-          </div>
+        </div>
         );
     }
 }

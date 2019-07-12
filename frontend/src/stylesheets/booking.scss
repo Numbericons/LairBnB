@@ -95,7 +95,7 @@
 }
 
 .DateInput {
-  width: 45%;
+  width: 40%;
   position: inherit;
 }
 .DayPicker_weekHeader_ul {
@@ -107,4 +107,7 @@
 }
 .DateRangePickerInput {
   width: 100%;
+}
+.DateInput_input {
+    font-size: 15px;
 }

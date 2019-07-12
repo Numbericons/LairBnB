@@ -10,8 +10,6 @@
 
 .lair-items-container {
     width: 600px;
-    padding-left: 205px;
-    padding-right: 50px;
 }
 
 .lair-name {
@@ -177,4 +175,13 @@
 
 .about-lair-title {
     display: flex;
+    color: #484848;
+    font-family: 'Poppins', sans-serif;
+}
+
+.lair-detail-container {
+    padding: 50px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
