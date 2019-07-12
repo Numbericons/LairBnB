@@ -1,46 +1,180 @@
-.show-img {
+.show-img-container {
     height: 600px;
-    width: 100%;
+}
+
+.show-img {
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
 }
 
 .lair-items-container {
     width: 600px;
-    padding-left: 200px;
+    padding-left: 205px;
+    padding-right: 50px;
 }
 
 .lair-name {
     font-size: 32px;
-    font-weight: 500;
-    color: #484848;
-    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    // color: #484848;
+    color: #5e5d5d;
+    font-family: 'Cabin', sans-serif;
+    // font-family: 'Poppins', sans-serif;
 }
 
 .lair-location {
-    font-size: 16px;
-    color: #484848;
-    font-family: 'Poppins', sans-serif;
+    font-size: 17px;
+    // color: #484848;
+    color: #5e5d5d;
+    font-family: 'Cabin', sans-serif;
+    // font-family: 'Poppins', sans-serif;
     font-weight: 400;
 }
 
 .lair-description {
-    font-size: 16px;
-    color: #484848;
-    font-family: 'Poppins', sans-serif;
+    font-size: 17px;
+    // color: #484848;
+    color: #5e5d5d;
+    font-family: 'Cabin', sans-serif;
+    // font-family: 'Poppins', sans-serif;
     font-weight: 400;
 }
 
 .single-amenity {
+    width: 48%;
+    padding: 5px;
+    // color: #484848;
+    color: #5e5d5d;
+    display: flex;
+    align-items: center;
+    height: 33px;
+}
 
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-right: 100px;
-    padding-left: 2px;
+// <link href="https://fonts.googleapis.com/css?family=Cabin&display=swap" rel="stylesheet">
+.single-amenity-text {
+    font-size: 17px;
+    font-family: 'Cabin', sans-serif;
+    // font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+    margin-left: 10px;
+    font-weight: 100;
+}
+
+
+.single-amenity-crossed-text {
+    font-size: 16px;
+    font-family: 'Cabin', sans-serif;
+    // font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+    text-decoration: line-through;
+    margin-left: 10px;
+    font-weight: 100;
 }
 
 .amenities {
     display: flex;
     flex-wrap: wrap;
     font-size: 16px;
-    color: #484848;
-    font-family: 'Poppins', sans-serif;
+    // color: #484848;
+    color: #5e5d5d;
+    // font-family: 'Poppins', sans-serif;
+    font-family: 'Cabin', sans-serif;
+}
+
+.lair-user-container {
+    display: flex;
+    width: 610px;
+}
+
+.lair-name-location {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin-top: 15px;
+}
+
+.user-image-name-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+}
+
+.user-pic {
+    border-radius: 50%;
+    margin-top: 21px;
+    padding: 0;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    object-fit: cover;
+}
+
+.user-username {
+    color: #767676;
+    font-size: 14px;
+    font-family: 'Cabin', sans-serif;
+    // font-family: 'Poppins', sans-serif;
+    
+}
+
+.amenities-header {
+    margin-bottom: 7px;
+    // color: #484848;
+    color: #5e5d5d;
+    font-size: 18px;
+    font-weight: 1000;
+    font-family: 'Cabin', sans-serif;
+}
+
+.about-lair-container {
+    padding-top: 10px;
+}
+
+.about-lair-title-text {
+    font-family: 'Cabin', sans-serif;
+    font-size: 17px;
+    color: #5e5d5d;
+    font-weight: 1000;
+}
+
+.about-lair-description {
+    font-family: 'Cabin', sans-serif;
+    font-size: 16px;
+    padding-top: 3px;
+    padding-bottom: 21px;
+    margin-left: 30px;
+    color: #5e5d5d;
+    font-weight: 100;
+}
+
+.fa-home {
+    margin: 4px 12px 0px 0px;
+    height: 16px;
+    width: 18px;
+    font-size: 11px;
+}
+
+.fa-medal {
+    margin: 4px 12px 0px 0px;
+    height: 16px;
+    width: 18px;
+    font-size: 11px;
+}
+
+.fa-ghost {
+    margin: 4px 12px 0px 0px;
+    height: 16px;
+    width: 18px;
+    font-size: 11px;
+}
+
+.fa-map-marker-alt {
+    margin: 4px 12px 0px 0px;
+    height: 16px;
+    width: 18px;
+    font-size: 11px;
+}
+
+.about-lair-title {
+    display: flex;
 }
