@@ -6,6 +6,7 @@ import NavBarContainer from './nav/navbar_container';
 import Splash from './splash';
 import MainLairIndexContainer from './lairs/main_lairs_index_container';
 import UserShowContainer from './users/user_show_container';
+import Footer from './footer/footer';
 
 import { connect } from 'react-redux';
 
@@ -32,6 +33,8 @@ const App = (props) => (
       {/* <Route path="/lair/:lair_id" component={LairShowContainer} /> */}
       {/* <Route path="/search/all" component={LairIndex} */}
     </Switch>
+    <Route path="/" component={Footer} />
+
 
   </section> 
     

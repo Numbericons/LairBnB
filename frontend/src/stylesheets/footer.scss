@@ -1,0 +1,30 @@
+.footer-container {
+    width: 100%;
+    padding: 50px;
+    border-top: 1px solid rgb(235, 235, 235);
+}
+
+.footer-content {
+    width: 700px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.column {
+    width: 150px;
+    padding: 10px 50px 0px 0px;
+    &-header {
+        font-family: 'Poppins', sans-serif;
+        color: rgb(118, 118, 118);
+        font-size: 14px;
+        font-weight: 600;
+        color: #484848;
+        padding-bottom: 10px;
+    }
+    li, p {
+        font-family: 'Poppins', sans-serif;
+        color: #767676;
+        font-size: 14px;
+    }
+}
