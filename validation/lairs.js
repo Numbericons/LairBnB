@@ -18,7 +18,6 @@ module.exports = function validateLairInput(data) {
 
   data.torture_chamber = validText(data.torture_chamber) ? Validator.toBoolean(data.torture_chamber) : 'false';
   data.minions = validText(data.minions) ? Validator.toBoolean(data.minions) : 'false';
-  data.torture_chamber = validText(data.torture_chamber) ? Validator.toBoolean(data.torture_chamber) : 'false';
   data.wi_fi = validText(data.wi_fi) ? Validator.toBoolean(data.wi_fi) : 'false';
   data.hero_detector = validText(data.hero_detector) ? Validator.toBoolean(data.hero_detector) : 'false';
   data.pool = validText(data.pool) ? Validator.toBoolean(data.pool) : 'false';
