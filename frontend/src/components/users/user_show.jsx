@@ -7,9 +7,10 @@ class UserShow extends React.Component {
     
     this.state = {
       editMode: false,
-      host_description: props.user.host_description || "",
-      image_url: props.user.image_url || "",
+      host_description: props.user.host_description,
+      image_url: props.user.image_url,
       picFile: "",
+      loading: true
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.changeInput = this.changeInput.bind(this);
@@ -31,9 +32,24 @@ class UserShow extends React.Component {
         const user = action.user;
         this.setState({
           image_url: user.image_url,
-          host_description: user.host_description
+          host_description: user.host_description,
+          loading: false
         });
       });
+  }
+
+  componentDidUpdate() {
+    if (this.props.user.image_url !== this.state.image_url) {
+      this.props.fetchUser(this.props.userId)
+        .then(action => {
+          const user = action.user;
+          this.setState({
+            image_url: user.image_url,
+            host_description: user.host_description,
+            loading: false
+          });
+        });
+    }
   }
 
   switchMode(event) {
@@ -90,7 +106,7 @@ class UserShow extends React.Component {
             About
             <textarea
               className="host-description-textarea"
-              value={this.state.host_description || ""}
+              value={this.state.host_description}
               onChange={this.changeInput("host_description")}
             />
           </label>
@@ -123,9 +139,13 @@ class UserShow extends React.Component {
 
   }
 
-  render() {  
+  render() {
     let userImageStyle = {
       backgroundImage: `url('${this.state.image_url}')`
+    }
+
+    if (this.state.loading){
+      return <section className="user-profile-container"></section>
     }
 
     return (
