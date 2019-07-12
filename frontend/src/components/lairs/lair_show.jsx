@@ -1,4 +1,5 @@
 import React from 'react';
+import ReserveForm from '../bookings/reserve_form';
 
 class LairShow extends React.Component {
     constructor(props) {
@@ -63,27 +64,32 @@ class LairShow extends React.Component {
 
     render() {
         let { lair, user } = this.props;
-        debugger;
         if (!lair || !user) return null;
         return (
             <div>
                 <img className='show-img' src={lair.image_url}/>
-                <div className='lair-items-container'>
-                    <div className='lair-name'>{lair.name}</div>
-                    <div className='lair-location'>{lair.location}</div>
-                    <div className='lair-description'>{lair.description}</div>
-                    <div>${lair.rate} per night</div>
-                    <div className='amenities-container'>
-                        <div className='amenities-header'>Amenities</div>
-                        <div className='amenities'>
-                            {this.isTorture()}
-                            {this.isMinion()}
-                            {this.isWifi()}
-                            {this.isHeroDetector()}
-                            {this.isPool()}
-                            {this.isCemetary()}
+                <div className="lair-detail-container">
+                    <div className='lair-items-container'>
+                        <div className='lair-name'>{lair.name}</div>
+                        <div className='lair-location'>{lair.location}</div>
+                        <div className='lair-description'>{lair.description}</div>
+                        <div>${lair.rate} per night</div>
+                        <div className='amenities-container'>
+                            <div className='amenities-header'>Amenities</div>
+                            <div className='amenities'>
+                                {this.isTorture()}
+                                {this.isMinion()}
+                                {this.isWifi()}
+                                {this.isHeroDetector()}
+                                {this.isPool()}
+                                {this.isCemetary()}
+                            </div>
                         </div>
                     </div>
+                    <ReserveForm 
+                        key={`reserve-form${lair.id}`}
+                        lair={lair}
+                    />
                 </div>
             </div>
         )

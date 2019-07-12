@@ -5,7 +5,6 @@
 
 .lair-items-container {
     width: 600px;
-    padding-left: 200px;
 }
 
 .lair-name {
@@ -43,4 +42,11 @@
     font-size: 16px;
     color: #484848;
     font-family: 'Poppins', sans-serif;
+}
+
+.lair-detail-container {
+    padding: 50px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
