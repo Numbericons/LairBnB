@@ -5,6 +5,7 @@ import 'react-dates/lib/css/_datepicker.css';
 import { connect } from 'react-redux';
 import LoginFormContainer from '../session/login_form_container';
 import SignupFormContainer from '../session/signup_form_container';
+import {createBooking} from '../../actions/booking_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -14,7 +15,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-
+    createBooking: booking => dispatch(createBooking(booking))
   }
 }
 
@@ -25,10 +26,12 @@ class ReserveForm extends React.Component {
             num_guests: 1,
             departure_date: null,
             arrival_date: null,
-            lair_id: this.props.lair.id,
+            lair_id: this.props.lair._id,
             guest_id: this.props.currentUserId,
             showReservationDetails: false,
-            modal: ""
+            modal: "",
+            errors: "",
+            success: ""
         }
         this.switchModal = this.switchModal.bind(this);
         this.reserve = this.reserve.bind(this);
@@ -57,15 +60,27 @@ class ReserveForm extends React.Component {
                         switchComponent={this.switchModal("sign in")}
                     />
                 )
+            default:
+                return ""
         }
     }
 
     reserve(event) {
         event.preventDefault();
-        if (this.props.currentUserId) {
-            
+        if (this.props.currentUserId && this.state.departure_date && this.state.arrival_date) {
+            const {num_guests, departure_date, arrival_date, lair_id, guest_id} = this.state;
+            this.props.createBooking({
+                num_guests, 
+                departure_date: departure_date.format(),
+                arrival_date: arrival_date.format(),
+                lair_id, 
+                guest_id
+            });
+            this.setState({errors: "", success: "You've created your booking."});
+        } else if (!this.props.currentUserId) {
+            this.setState({modal: "sign in"});            
         } else {
-            this.setState({modal: "sign in"});
+            this.setState({errors: "You need both an arrival and departure date."})
         }
     }
     
@@ -78,7 +93,7 @@ class ReserveForm extends React.Component {
           <div className="reserve-form-dynamic-details">
             <div className="reserve-form-dynamic-details-row">
                 <p>${this.props.lair.rate} x {nights} nights</p>
-                <p>${totalNightlyRate}.00</p>
+                <p>${totalNightlyRate}</p>
             </div>
             <div className="reserve-form-dynamic-details-row">
                 <p>Cleaning fee</p>
@@ -96,7 +111,7 @@ class ReserveForm extends React.Component {
         )
       }
     }
-    
+
     render(){
       const number_of_guests = [];
       for (let i = 2; i <= 16; i++) {
@@ -134,6 +149,8 @@ class ReserveForm extends React.Component {
                     </select>
                </div>
                {this.showReservationDetails()}
+               <div className="error-text">{this.state.errors}</div>
+               <div className="success-text">{this.state.success}</div>
                 <button 
                     className="pink-button wide-button"
                     onClick={this.reserve}

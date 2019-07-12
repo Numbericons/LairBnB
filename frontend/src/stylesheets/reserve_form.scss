@@ -6,7 +6,11 @@
         width: 325px;
         border: 1px solid #e4e4e4;
         border-radius: 3px;
-        font-family: 'Poppins'
+        font-family: 'Poppins';
+        .error-text {
+            font-size: 12px;
+            text-align: center;
+        }
     }
     &-details {
         width: 325px;
@@ -54,4 +58,10 @@
 
 .date-picker {
     width: 100px;
+}
+
+.success-text {
+    color: rgb(72, 72, 72);
+    font-size: 12px;
+    text-align: center;
 }
