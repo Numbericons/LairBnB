@@ -10,8 +10,10 @@ const mapStateToProps = (state, ownProps) => {
     userId,
     currentUser: state.entities.users[state.session.id] || {},
     user: state.entities.users[userId] || {},
+    allUsers: state.entities.users,
     lairs: selectLairsByUserId(state, userId),
-    reviews: selectReviewsByHostId(state, userId)
+    allLairs: state.entities.lairs,
+    reviews: selectReviewsByHostId(state, userId),
   }
 }
 

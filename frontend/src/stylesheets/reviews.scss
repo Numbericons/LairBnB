@@ -59,6 +59,44 @@
                 font-size: 16px;
             }
         }
+        .no-reviews {
+            padding: 10px 0px;
+            font-weight: 500;
+        }
     }
 }
 
+.user-profile-right {
+    .reviews-container {
+        .review-header{
+            display: block;
+        } 
+        .user-show-reviews-row-header > a {
+            padding-top: 10px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            p {
+                font-size: 12px;
+                font-weight: 500;
+                color: #767676;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+            img {
+                width: 50px;
+                height: 30px;
+            }
+        }
+        .user-show-reviews-row-body {
+            font-family: 'Poppins';
+            font-size: 16px;
+            font-weight: 500;
+            padding-top: 20px;
+        }
+        .user-show-reviews-row-reviewer {
+
+        }
+    }
+}
