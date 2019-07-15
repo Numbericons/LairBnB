@@ -3,6 +3,7 @@ import { logout } from '../../actions/session_actions';
 
 import NavBar from './navbar';
 import { fetchReviews } from '../../actions/reviews_actions';
+import { fetchLairs } from '../../actions/lairs_actions';
 
 const mapStateToProps = state => {
   return {
@@ -13,7 +14,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = (dispatch) => {
   return {
     logout: user => dispatch(logout(user)),
-    fetchReviews: () => dispatch(fetchReviews())
+    fetchReviews: () => dispatch(fetchReviews()),
+    fetchLairs: () => dispatch(fetchLairs())
   }
 }
 

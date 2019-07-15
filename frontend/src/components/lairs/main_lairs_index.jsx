@@ -1,6 +1,7 @@
 import React from 'react'
 import MainLairTypeIndexItem from './main_lair_type_index_item';
 import LairIndexItem from './lair_index_item';
+import { Link } from 'react-router-dom'
 import mean from 'lodash.mean'
 import samplesize from 'lodash.samplesize'
 
@@ -47,12 +48,15 @@ class MainLairIndex extends React.Component {
                 let lair = this.props.lairs[lairId];
                 if (lair.type === type && !lairTypeItems[type]){
                     let typeStr = type.charAt(0).toUpperCase() + type.slice(1)
-                    lairTypeItems[type] = ( <MainLairTypeIndexItem
-                        key={`lair-type-${lairId}`}
-                        image={lair.image_url}
-                        type={typeStr}
-                        avgNightlyRate={lairTypePriceAverage[type]}
-                        />
+                    lairTypeItems[type] = ( 
+                        <Link to={`/s/${lair.type}/all`}>
+                            <MainLairTypeIndexItem
+                                key={`lair-type-${lairId}`}
+                                image={lair.image_url}
+                                type={typeStr}
+                                avgNightlyRate={lairTypePriceAverage[type]}
+                            />
+                        </Link>
                     )
                 }
             })
