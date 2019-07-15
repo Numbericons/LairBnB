@@ -155,49 +155,53 @@ class LairShow extends React.Component {
         const reviews = this.props.reviews;
         const users = this.props.users;
         return (
-            <section>
+            <section className="reviews-container">
                 <div className="review-header">
-                    {this.props.reviews.length}&nbsp;
-                    {reviews.length === 1 ? "Review" : "Reviews"}&nbsp;
-                    {this.getStars(this.ratingsObj.avgRating)}
+                    <div className="review-header-count">
+                        {this.props.reviews.length}&nbsp;
+                        {reviews.length === 1 ? "Review" : "Reviews"}&nbsp;
+                    </div>
+                    <div className="review-header-avg">
+                        {this.getStars(this.ratingsObj.avgRating)}
+                    </div>
                 </div>
-                <div>
-                    <div>
-                        <div>
+                <div className="review-user-container">
+                    <div className="review-star-details-col">
+                        <div className="review-star-details-row">
                             <span>Accuracy</span>
-                            {this.getStars(this.ratingsObj.accuracy / reviews.length)}
+                            <div className="stars">{this.getStars(this.ratingsObj.accuracy / reviews.length)}</div>
                         </div>
-                        <div>
+                        <div className="review-star-details-row">
                             <span>Communication</span>
-                            {this.getStars(this.ratingsObj.communication / reviews.length)}
+                            <div className="stars">{this.getStars(this.ratingsObj.communication / reviews.length)}</div>
                         </div>
-                        <div>
+                        <div className="review-star-details-row">
                             <span>Cleanliness</span>
-                            {this.getStars(this.ratingsObj.cleanliness / reviews.length)}
+                            <div className="stars">{this.getStars(this.ratingsObj.cleanliness / reviews.length)}</div>
                         </div>
                     </div>
-                    <div>
-                        <div>
+                    <div className="review-star-details-col">
+                        <div className="review-star-details-row">
                             <span>Location</span>
-                            {this.getStars(this.ratingsObj.location / reviews.length)}
+                            <div className="stars">{this.getStars(this.ratingsObj.location / reviews.length)}</div>
                         </div>
-                        <div>
+                        <div className="review-star-details-row">
                             <span>Check-in</span>
-                            {this.getStars(this.ratingsObj.check_in / reviews.length)}
+                            <div className="stars">{this.getStars(this.ratingsObj.check_in / reviews.length)}</div>
                         </div>
-                        <div>
+                        <div className="review-star-details-row">
                             <span>Value</span>
-                            {this.getStars(this.ratingsObj.value / reviews.length)}
+                            <div className="stars">{this.getStars(this.ratingsObj.value / reviews.length)}</div>
                         </div>
                     </div>
                 </div>
-                <ul>
+                <ul className="review-user-reviews">
                     {reviews.map(review => {
                         const user = users[review.guest_id] || {};
                         return (                        
                             <li key={`lairshowreview-${review._id}`}>
-                                <div>
-                                    <img className="user-pic" src={user.image_url} />
+                                <div className="review-user-reviews-user-info">
+                                    <img className="user-pic" src={user.image_url} alt="profile"/>
                                     <span>{user.username}</span>
                                 </div>
                                 <p>
