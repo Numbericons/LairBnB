@@ -12,3 +12,13 @@ export const selectReviewsByLairId = (state, lairId) => {
   const allReviews = Object.values(state.entities.reviews);
   return allReviews.filter(review => review.lair_id == lairId);
 };
+
+export const selectLairsByLocation = (state, lat, lng) => {
+  if (!lat || !lng) {
+    return [];
+  }
+  const allLairs = Object.values(state.entities.lairs);
+  // return allLairs.filter(lair => {
+  //   if (lair.lat )
+  // })
+}

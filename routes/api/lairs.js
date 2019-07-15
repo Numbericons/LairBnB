@@ -20,6 +20,19 @@ router.get('/', (req, res) => {
         .catch(err => res.status(404).json({nolairsfound: 'No lairs found'}))
 })
 
+router.get('/bounds/:bounds', (req, res) => {
+    let bounds = req.params.bounds;
+    Lair.find({
+        lat: { $gt: minLat, $lt: maxLat },
+        lng: { $gt: minLng, $lt: maxLng }
+    })
+    .lean()
+    .then(lairs => {
+        return res.json(lairs)
+    })
+    
+})
+
 router.get('/:lair_id', (req, res) => {
     Lair.findById(req.params.lair_id)
         .lean()

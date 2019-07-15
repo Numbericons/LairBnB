@@ -12,8 +12,8 @@ class TypeLairsIndex extends React.Component {
 
     render() {
         return (
-            <div>
-              <h1 className='lair-type-header'>{this.props.lairType}</h1>
+            <div className="lair-index-container">
+            <h1 className='lair-type-header'>{this.props.lairType.charAt(0).toUpperCase() + this.props.lairType.slice(1) + "s"}</h1>
               <div>
                 <h4 className='lair-index-header'>Where to stay</h4>
                 <ul className="lair-row-container">
@@ -29,7 +29,7 @@ class TypeLairsIndex extends React.Component {
               <div className='type-amenity-container'>
                 <h4 className='lair-index-header'>Places to stay with a torture chamber</h4>
                 <ul className="lair-row-container">
-                    {this.displayLairsByAmenity("torture_chamber")}
+                  {this.displayLairsByAmenity("torture_chamber")}
                 </ul>
               </div>
             </div>

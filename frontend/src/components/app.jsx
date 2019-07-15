@@ -9,6 +9,7 @@ import UserShowContainer from './users/user_show_container';
 import Footer from './footer/footer';
 import LairShowContainer from './lairs/lair_show_container';
 import TypeLairIndexContainer from './lairs/type_lairs_index_container';
+import LocationLairsIndexContainer from './lairs/location_lairs_index_container';
 
 import { connect } from 'react-redux';
 
@@ -34,7 +35,7 @@ const App = (props) => (
       <Route path="/users/show/:user_id" component={UserShowContainer} />
       <Route path="/s/:lair_type/all" component={TypeLairIndexContainer} />
       <Route path="/lair/:lair_id" component={LairShowContainer} />
-        {/* <Route path="/search/all" component={LairIndex} */}
+      <Route path="/s/:location/stays" component={LocationLairsIndexContainer} />
     </Switch>
     <Route path="/" component={Footer} />
 
