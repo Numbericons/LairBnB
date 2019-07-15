@@ -37,6 +37,14 @@ export const fetchUser = id => dispatch => {
         })
 }
 
+export const fetchUsers = () => dispatch => {
+    return APIUtil.getUsers()
+        .then(users => {
+            console.log(users.data)
+            return dispatch(receiveUsers(users.data))
+        })
+}
+
 export const editUser = (user) => dispatch => {
     return APIUtil.patchUser(user)
         .then(user => {

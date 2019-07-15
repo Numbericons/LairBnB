@@ -44,6 +44,7 @@ class NavBar extends React.Component {
       this.autocomplete = new window.google.maps.places.Autocomplete(input);
     }
     this.props.fetchReviews();
+    this.props.fetchUsers();
   }
 
   componentDidUpdate() {
