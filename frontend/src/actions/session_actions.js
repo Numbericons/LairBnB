@@ -52,6 +52,7 @@ export const signup = user => dispatch => (
         return dispatch(login({email, password}));
     }, err => {
         dispatch(receiveErrors(err.response.data));
+        throw ""
     })
 );
 
@@ -66,6 +67,7 @@ export const login = user => dispatch => (
     })
     .catch(err => {
         dispatch(receiveErrors(err.response.data));
+        throw ""
     })
 )
 

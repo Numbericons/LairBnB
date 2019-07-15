@@ -43,7 +43,6 @@ router.patch('/edit', (req, res) => {
 //sign up a user
 router.post('/register', (req, res) => {
   const { errors, isValid } = validateRegisterInput(req.body);
-  
   if (!isValid) {
     console.log(errors);
     return res.status(400).json(errors);
@@ -64,8 +63,9 @@ router.post('/register', (req, res) => {
             if (err) throw err;
             newUser.password = hash;
             return newUser.save()
-              .then(user => {
-              }, err => {
+              .then(user => (
+                res.json(user)                
+              ), err => {
                 console.log(err);
               })
           })
@@ -77,7 +77,6 @@ router.post('/register', (req, res) => {
   //sign in
   router.post('/login', (req, res) => {
     const { errors, isValid } = validateLoginInput(req.body);
-
     if (!isValid) {
       return res.status(400).json(errors);
     }

@@ -52,7 +52,9 @@ class AuthForm extends React.Component {
       password: this.state.password
     };
     this.props.formCallback(newObj)
-      .then(res => this.props.closeComponent());
+      .then(res => {
+        this.props.closeComponent();
+      })
   }
 
   changeState(key) {
