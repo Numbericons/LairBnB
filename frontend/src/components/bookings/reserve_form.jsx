@@ -112,6 +112,28 @@ class ReserveForm extends React.Component {
       }
     }
 
+    getStars(rating) {
+        const starArray = [];
+        for (let i = 1, fin = Math.floor(rating); i <= fin; i++) {
+            starArray.push(< i className="fas fa-star" />);
+        }
+        const remains = rating % 1;
+        if (remains >= .75) {
+            starArray.push(< i className="fas fa-star" />);
+        } else if (remains > .25) {
+            starArray.push(< i className="fas fa-star-half-alt" />);
+        }
+        while (starArray.length < 5) {
+            starArray.push(< i className="far fa-star" />);
+        }
+        return (
+            <div className="lair-random-tile-rating">
+                {starArray}
+                <span>{this.props.reviews.length}</span>
+            </div>
+        )
+    }
+    
     render(){
       const number_of_guests = [];
       for (let i = 2; i <= 16; i++) {
@@ -122,14 +144,7 @@ class ReserveForm extends React.Component {
                <div className="reserve-form-details">
                    <span className="reserve-form-rate">${this.props.lair.rate}</span>
                    <span className="per-night"> per night</span>
-                   <div className="lair-random-tile-rating">
-                       <i className="fas fa-star"></i>
-                       <i className="fas fa-star"></i>
-                       <i className="fas fa-star"></i>
-                       <i className="fas fa-star"></i>
-                       <i className="fas fa-star"></i>
-                       <span>50</span>
-                   </div>
+                   {this.getStars(this.props.avgRating)}
                </div>
                <div className="reserve-form-dates-guests">
                    <h3 className="reserve-form-sub-header">Dates</h3>

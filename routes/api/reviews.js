@@ -6,19 +6,53 @@ const passport = require('passport');
 const Review = require('../../models/Review');
 const validateReviewInput = require('../../validation/reviews');
 
-router.get('/api/lairs/:lair_id/reviews', (req, res) => {
-    Review.find({lair_id: req.params.lair_id})
-        .then(reviews => res.json(reviews))
+router.get('/', (req, res) => {
+    return Review.find({})
+        .lean()
+        .then(reviews => {
+            const newReviews = {};
+            reviews.forEach(review => {
+                const id = review._id;
+                newReviews[id] = review;
+            })
+            res.json(newReviews);
+        })
+})
+
+router.get('/lairs/:lair_id', (req, res) => {
+    return Review.find({lair_id: req.params.lair_id})
+        .lean()
+        .then(reviews => {
+            const newReviews = {};
+            const guestIds = [];
+            reviews.forEach(review => {
+                const id = review._id;
+                newReviews[id] = review;
+                guestIds.push(review.guest_id);
+            })
+            User.find({
+                '_id': {
+                    $in: guestIds
+                }
+            }).then(users => {
+                const newUsers = {};
+                users.forEach(user => {
+                    const id = user._id
+                    newUsers[id] = user;
+                })
+                res.json({reviews: newReviews, users: newUsers})
+            })            
+        })
         .catch(err => res.status(404).json({noreviewsfound: 'No reviews found'}))
 })
 
-router.get('/api/reviews/:id', (req, res) => {
+router.get('/:id', (req, res) => {
     Review.find({id: req.params.id})
         .then(review => res.json(review))
         .catch(err => res.status(404).json({noreviewfound: 'That review was not found'}))
 })
 
-router.post('/api/reviews', 
+router.post('/', 
     passport.authenticate('jwt', { session: false }), 
     (req, res) => {
         const { errors, isValid } = validateReviewInput(req.body);
@@ -37,7 +71,7 @@ router.post('/api/reviews',
         newReview.save().then(review => res.json(review));
 })
 
-router.delete('/api/reviews/:id', 
+router.delete('/:id', 
     passport.authenticate('jwt', { session: false }), 
     (req, res) => {
         Review.find({id: req.params.id})

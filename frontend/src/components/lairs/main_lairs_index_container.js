@@ -4,13 +4,14 @@ import { fetchLairs } from '../../actions/lairs_actions'
 
 const msp = (state) => {
     return ({
-        lairs: state.entities.lairs
+        lairs: state.entities.lairs,
+        reviews: state.entities.reviews
     })
 }
 
 const mdp = (dispatch) => {
     return ({
-        fetchLairs: () => dispatch(fetchLairs())
+        fetchLairs: () => dispatch(fetchLairs()),
     })
 }
 

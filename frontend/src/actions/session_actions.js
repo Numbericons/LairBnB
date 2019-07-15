@@ -6,6 +6,7 @@ import { receiveErrors } from './errors_actions';
 export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 export const RECEIVE_USER_LOGOUT = "RECEIVE_USER_LOGOUT";
 export const RECEIVE_A_USER = "RECEIVE_A_USER";
+export const RECEIVE_USERS = "RECEIVE_USERS";
 
 export const receiveCurrentUser = currentUser => ({
     type: RECEIVE_CURRENT_USER,
@@ -16,6 +17,11 @@ export const receiveAUser = user => ({
     type: RECEIVE_A_USER,
     user
 });
+
+export const receiveUsers = users => ({
+    type: RECEIVE_USERS,
+    users
+})
 
 
 export const logoutUser = () => ({

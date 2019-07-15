@@ -13,19 +13,20 @@ const seedReviews = () => {
   Review.deleteMany({}, (err) => { console.log(err) });
   const reviewerIds = [];
   const userObj = {};
-  const reviewers = [
-    'April Graves',
-    'Christie Brandao',
-    'Zachary Oliver',
-    'Charles Mancuso'
-  ];
-  return User.find({})
+  return User.find({
+      'username': {
+        $in: [
+          'April Graves',
+          'Christie Brandao',
+          'Zachary Oliver',
+          'Charles Mancuso'
+        ]
+      }
+  })
     .then(res => {
       for (let i=0,fin=res.length; i < fin; i++) {
         const user = res[i];
-        if (reviewers.includes(user.username)) {
-          reviewerIds.push(user._id);
-        }
+        reviewerIds.push(user._id);
         userObj[user._id] = user.username;
       };
       Lair.find({}).then(res => {

@@ -1,4 +1,4 @@
-import { postBooking, getBookingsByUserId } from '../util/booking_util';
+import { postBooking, getBookingsByUserId } from '../util/booking_api_util';
 import { receiveErrors } from './errors_actions';
 export const RECEIVE_BOOKING = "RECEIVE_BOOKING";
 export const RECEIVE_BOOKINGS = "RECEIVE_BOOKINGS";

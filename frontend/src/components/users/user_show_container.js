@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { editUser, fetchUser } from '../../actions/session_actions';
 import { fetchLairs } from '../../actions/lairs_actions';
 import UserShow from './user_show';
-import { selectLairsByUserId } from '../selectors/selector';
+import { selectLairsByUserId } from '../../selectors/selector';
 
 const mapStateToProps = (state, ownProps) => {
   const userId = ownProps.match.params.user_id;

@@ -3,15 +3,13 @@ import { Link } from 'react-router-dom';
 import ReserveForm from '../bookings/reserve_form';
 
 class LairShow extends React.Component {
-    constructor(props) {
-        super(props);
-    }
 
     componentDidMount() {
         this.props.fetchLair(this.props.lairId)
             .then(action => {
-                this.props.fetchUser(action.lair.owner_id)
+                this.props.fetchUser(action.lair.owner_id);
             })
+        this.props.fetchReviewsByLairId(this.props.lairId);
     }
 
     amenityArr() {
@@ -110,10 +108,115 @@ class LairShow extends React.Component {
         }
     }
 
+    getStars(rating) {
+        const starArray = [];
+        for (let i=1, fin=Math.floor(rating); i <= fin; i++) {
+            starArray.push(< i className = "fas fa-star" />);
+        }
+        const remains = rating % 1;
+        if (remains >= .75) {
+            starArray.push(< i className="fas fa-star" />);
+        } else if (remains > .25) {
+            starArray.push(< i className="fas fa-star-half-alt" />);
+        }
+        while (starArray.length < 5) {
+            starArray.push(< i className="far fa-star" />);
+        }
+        return (
+            <div>
+                {starArray}
+            </div>
+        )
+    }
+
+    calcRatings() {
+        const reviews = this.props.reviews;
+        const ratingsObj = {};
+        let fiveStarLocRatings = 0;
+        for (let i=0, fin=reviews.length; i<fin; i++) {
+            const review = reviews[i];
+            ratingsObj.accuracy = (ratingsObj.accuracy || 0) + review.accuracy;
+            ratingsObj.communication = (ratingsObj.communication || 0) + review.communication;
+            ratingsObj.cleanliness = (ratingsObj.cleanliness || 0) + review.cleanliness;
+            ratingsObj.location = (ratingsObj.location || 0) + review.location;
+            ratingsObj.check_in = (ratingsObj.check_in || 0) + review.check_in;
+            ratingsObj.value = (ratingsObj.value || 0) + review.value;
+            if (review.location === 5) {
+                fiveStarLocRatings = fiveStarLocRatings + 1;
+            }
+        }
+        ratingsObj.avgRating = (ratingsObj.accuracy + ratingsObj.communication + ratingsObj.cleanliness + ratingsObj.location + ratingsObj.check_in + ratingsObj.value) / (6 * reviews.length);
+        ratingsObj.fiveStarPercent = (fiveStarLocRatings / reviews.length) * 100;
+        this.ratingsObj = ratingsObj;
+    }
+
+    
+    displayReviews() {
+        const reviews = this.props.reviews;
+        const users = this.props.users;
+        return (
+            <section>
+                <div className="review-header">
+                    {this.props.reviews.length}&nbsp;
+                    {reviews.length === 1 ? "Review" : "Reviews"}&nbsp;
+                    {this.getStars(this.ratingsObj.avgRating)}
+                </div>
+                <div>
+                    <div>
+                        <div>
+                            <span>Accuracy</span>
+                            {this.getStars(this.ratingsObj.accuracy / reviews.length)}
+                        </div>
+                        <div>
+                            <span>Communication</span>
+                            {this.getStars(this.ratingsObj.communication / reviews.length)}
+                        </div>
+                        <div>
+                            <span>Cleanliness</span>
+                            {this.getStars(this.ratingsObj.cleanliness / reviews.length)}
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <span>Location</span>
+                            {this.getStars(this.ratingsObj.location / reviews.length)}
+                        </div>
+                        <div>
+                            <span>Check-in</span>
+                            {this.getStars(this.ratingsObj.check_in / reviews.length)}
+                        </div>
+                        <div>
+                            <span>Value</span>
+                            {this.getStars(this.ratingsObj.value / reviews.length)}
+                        </div>
+                    </div>
+                </div>
+                <ul>
+                    {reviews.map(review => {
+                        const user = users[review.guest_id] || {};
+                        return (                        
+                            <li key={`lairshowreview-${review._id}`}>
+                                <div>
+                                    <img className="user-pic" src={user.image_url} />
+                                    <span>{user.username}</span>
+                                </div>
+                                <p>
+                                    {review.body}
+                                </p>
+                            </li>
+                        )
+                    })}
+                </ul>
+            </section>
+        )
+    }
+
 
     render() {
-        let { lair, user } = this.props;
+        const lair = this.props.lair;
+        const user = this.props.users[lair && lair.owner_id];
         if (!lair || !user) return null;
+        this.calcRatings();
         return (
           <div>
             <div className="show-img-container">
@@ -121,57 +224,66 @@ class LairShow extends React.Component {
             </div>
             <div className='lair-detail-container'>
                 <div className="lair-items-container">
-                <div className="lair-user-container">
-                    <div className="lair-name-location">
-                    <div className="lair-name">{lair.name}</div>
-                    <div className="lair-location">{lair.location}</div>
+                    <div className="lair-user-container">
+                        <div className="lair-name-location">
+                            <div className="lair-name">{lair.name}</div>
+                            <div className="lair-location">{lair.location}</div>
+                        </div>
+                        <div className="user-image-name-container">
+                            <Link to={`/users/show/${user.id}`}>
+                                <img className='user-pic' src={user.image_url}/>
+                            </Link>
+                            <div className='user-username'>{user.username}</div>
+                        </div>
                     </div>
-                    <div className="user-image-name-container">
-                        <Link to={`/users/show/${user.id}`}>
-                            <img className='user-pic' src={user.image_url}/>
-                        </Link>
-                        <div className='user-username'>{user.username}</div>
+                    <div className="about-lair-container">
+                        <div className="about-lair-title">
+                            <i className="fas fa-home"></i>
+                            <p className="about-lair-title-text">Entire Lair</p>
+                        </div>
+                        <p className="about-lair-description">{lair.max_guests} guests</p>
+                        <div className="about-lair-title">
+                            <i className="fas fa-medal"></i>
+                            <p className="about-lair-title-text">{user.username} is a Supervillain</p>
+                        </div>
+                        <p className="about-lair-description">
+                            Supervillains are experienced, highly infamous villains who are committed to providing horrendous experiences for guests.
+                        </p>
+                        <div className="about-lair-title">
+                            <i className="fas fa-ghost"></i>
+                            <p className="about-lair-title-text">Eerie presence</p>
+                        </div>
+                        <p className="about-lair-description">
+                            13 recent guests said this place had an eerie presence to it.
+                        </p>
+                        <div className="about-lair-title">
+                            <i className="fas fa-map-marker-alt"></i>
+                            <p className="about-lair-title-text">Great location</p>
+                        </div>
+                        <p className="about-lair-description">
+                            {this.ratingsObj.fiveStarPercent || 0}% of recent guests gave the location a 5-star rating.
+                        </p>
                     </div>
-                </div>
-                <div className="about-lair-container">
-                    <div className="about-lair-title">
-                        <i className="fas fa-home"></i>
-                        <p className="about-lair-title-text">Entire Lair</p>
-                    </div>
-                    <p className="about-lair-description">{lair.max_guests} guests</p>
-                    <div className="about-lair-title">
-                        <i className="fas fa-medal"></i>
-                        <p className="about-lair-title-text">{user.username} is a Supervillain</p>
-                    </div>
-                    <p className="about-lair-description">Supervillains are experienced, highly infamous villains who are committed to providing horrendous experiences for guests.</p>
-                    <div className="about-lair-title">
-                        <i className="fas fa-ghost"></i>
-                        <p className="about-lair-title-text">Eerie presence</p>
-                    </div>
-                    <p className="about-lair-description">13 recent guests said this place had an eerie presence to it.</p>
-                    <div className="about-lair-title">
-                        <i className="fas fa-map-marker-alt"></i>
-                        <p className="about-lair-title-text">Great location</p>
-                    </div>
-                    <p className="about-lair-description">100% of recent guests gave the location a 5-star rating.</p>
-                </div>
                     <div className="user-profile-left-line">
                         <div className="line"></div>
                     </div>
-                <div className="lair-description">{lair.description}</div>
+                    <div className="lair-description">{lair.description}</div>
                     <div className="user-profile-left-line">
                         <div className="line"></div>
                     </div>
-                <div className="amenities-container">
-                    <div className="amenities-header">Amenities</div>
-                    <div className="amenities">
-                    {this.amenityArr()}
+                    <div className="amenities-container">
+                        <div className="amenities-header">Amenities</div>
+                        <div className="amenities">
+                            {this.amenityArr()}
+                        </div>
                     </div>
-                </div>
+                    {this.displayReviews()}
                 </div>
                 <ReserveForm
                     key={`reserve-form${lair.id}`}
                     lair={lair}
+                    reviews={this.props.reviews}
+                    avgRating={this.ratingsObj.avgRating}
                 />
             </div>
         </div>
