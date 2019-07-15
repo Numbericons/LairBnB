@@ -141,6 +141,10 @@ class UserShow extends React.Component {
     }
   }
 
+  displayReviews() {
+    
+  }
+
   displayListings() {
     if (this.props.lairs.length === 0) {
       return <p>This user has no listings yet.</p>
@@ -161,6 +165,8 @@ class UserShow extends React.Component {
     if (this.state.loading){
       return <section className="user-profile-container"></section>
     }
+
+    console.log(this.props.reviews)
 
     return (
       <section className="user-profile-container">

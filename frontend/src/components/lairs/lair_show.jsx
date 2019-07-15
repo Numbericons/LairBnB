@@ -224,7 +224,7 @@ class LairShow extends React.Component {
         return (
           <div>
             <div className="show-img-container">
-                <img className="show-img"  src={lair.image_url} />
+                <img className="show-img"  src={lair.image_url} alt="lair"/>
             </div>
             <div className='lair-detail-container'>
                 <div className="lair-items-container">
@@ -235,7 +235,7 @@ class LairShow extends React.Component {
                         </div>
                         <div className="user-image-name-container">
                             <Link to={`/users/show/${user.id}`}>
-                                <img className='user-pic' src={user.image_url}/>
+                                <img className='user-pic' src={user.image_url} alt="profile"/>
                             </Link>
                             <div className='user-username'>{user.username}</div>
                         </div>
