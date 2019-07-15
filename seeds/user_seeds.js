@@ -25,6 +25,42 @@ const seedUsers = () => {
 
     userArray.push(
       new User({
+        username: "April Graves",
+        email: "ag@aol.com",
+        image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/villains/april.jpeg",
+        password: "password"
+      })
+    );
+
+    userArray.push(
+      new User({
+        username: "Christie Brandao",
+        email: "cb@yahoo.com",
+        image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/villains/christie.jpeg",
+        password: "password"
+      })
+    );
+
+    userArray.push(
+      new User({
+        username: "Charles Mancuso",
+        email: "cm@gmail.com",
+        image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/villains/charles.jpeg",
+        password: "password"
+      })
+    );
+
+    userArray.push(
+      new User({
+        username: "Zachary Oliver",
+        email: "zo@comcast.net",
+        image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/villains/zachary.jpeg",
+        password: "password"
+      })
+    );
+
+    userArray.push(
+      new User({
         username: "Lord Voldemort",
         email: "HeirOfSlytherin@aol.com",
         image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/villains/voldemort.png",
