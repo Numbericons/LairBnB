@@ -1,0 +1,96 @@
+.booking-index-container {
+    padding-top: 50px;
+    padding-right: 60px;
+    padding-left: 60px;
+    background: #F9F8F7;
+}
+
+.no-bookings-index-container {
+    padding-top: 50px;
+    padding-right: 60px;
+    padding-left: 60px;
+}
+
+.no-booking-index-header {
+    font-family: 'Poppins', sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    color: #484848;
+    padding-bottom: 30px;
+}
+
+.booking-index-none {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #484848;
+}
+
+.booking-index-header {
+    font-family: 'Poppins', sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    color: #484848;
+    padding-bottom: 30px;
+    padding-left: 20px;
+}
+
+.booking-formatter {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.actual-booking-container {
+    background: #FFFFFF;
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    margin: 25px;
+    height: 500px;
+}
+
+.booking-index-img-container {
+    height: 65%;
+}
+
+.booking-index-img {
+    height: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    object-fit: cover;
+}
+
+.booking-index-info-container {
+    height: 35%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 25px;
+    padding-right: 25px;
+    box-shadow: 5px 10px 18px #888888;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.booking-index-dates {
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: #484848;
+}
+
+.booking-index-location {
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: #484848;
+}
+
+.booking-index-type {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #484848;
+}

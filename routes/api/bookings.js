@@ -9,7 +9,15 @@ const validateBookingInput = require('../../validation/bookings');
 //get all bookings
 router.get('/', (req, res) => {
     Booking.find()
-        .then(bookings => res.json(bookings))
+        .lean()
+        .then(bookings => {
+            const newBookings = {};
+            bookings.forEach(booking => {
+              const id = booking._id;
+              newBookings[id] = booking;
+            });
+            res.json(newBookings);
+        })
         .catch(err => res.status(404).json({nobookingsfound: 'No bookings found'}))
 })
 
@@ -46,11 +54,12 @@ router.post('/',
 router.delete('/:booking_id', 
     passport.authenticate('jwt', { session: false }), 
     (req, res) => {
-        Booking.find({id: req.params.booking_id})
-            .then(booking => { booking.remove()
-                                .then(function(){return res.sendStatus(204)})
-                                .catch(err => res.json(err))
-                            })
+        Booking.findById(req.params.booking_id)
+            .then(booking => { 
+                booking.remove()
+                .then(() => res.json({id: booking.id}))
+                .catch(err => res.json(err))
+            })
             .catch(err => res.status(404).json({nobookingsfound: 'That booking was not found'}))
     
 })

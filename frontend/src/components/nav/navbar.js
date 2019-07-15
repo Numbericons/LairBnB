@@ -1,5 +1,5 @@
 import React from 'react';
-import {withRouter} from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import LogInContainer from '../session/login_form_container';
 import SignUpContainer from '../session/signup_form_container';
 
@@ -13,6 +13,7 @@ class NavBar extends React.Component {
     this.toggleUserDropdown = this.toggleUserDropdown.bind(this);
     this.handleClickOutside = this.handleClickOutside.bind(this);
     this.goToUserShow = this.goToUserShow.bind(this);
+    this.gotoBookings = this.gotoBookings.bind(this);
   }
 
   goToUserShow() {
@@ -95,30 +96,28 @@ class NavBar extends React.Component {
     }
   }
 
+  gotoBookings() {
+
+  }
+
   getLinks() {
     if (this.props.currentUser) {
       return (
-        <nav className='nav-session-container'>
-          <button
-            className='btn-session'
-          >
-            Trips
+        <nav className="nav-session-container">
+          <button className="btn-session">
+            <Link to="/bookings/index">Trips</Link>
           </button>
-          <button
-            className='btn-session'
-          >
-            Messages
-          </button>
-          <div className='btn-session'>
+          <button className="btn-session">Messages</button>
+          <div className="btn-session">
             <img
-              className='profile-pic'
+              className="profile-pic"
               alt="user profile pic"
               src={this.props.currentUser.image_url || ""}
               onClick={this.toggleUserDropdown}
             />
           </div>
         </nav>
-      )
+      );
     } else {
       return (
         <nav className='nav-session-container'>
