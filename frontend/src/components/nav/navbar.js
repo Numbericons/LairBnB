@@ -45,6 +45,7 @@ class NavBar extends React.Component {
     }
     this.props.fetchLairs();
     this.props.fetchReviews();
+    this.props.fetchUsers();
   }
 
   componentDidUpdate() {

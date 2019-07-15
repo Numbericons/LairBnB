@@ -1,0 +1,102 @@
+.reviews-container {
+    margin-top: 10px;
+    .fa-star, .fa-star-half-alt {
+        padding: 0px 1px;
+    }
+}
+
+.review {
+    &-header {
+        padding: 20px 0px;
+        font-size: 24px;
+        color: #484848;
+        font-weight: 600;
+        display: flex;
+        flex-direction: row;
+        border-bottom: 1px solid #EBEBEB;
+        border-top: 1px solid #EBEBEB;
+    }
+    &-user-container {
+        display: flex;
+        flex-direction: row;
+        padding-top: 10px;
+    }
+    &-star-details-col {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+    }
+    &-star-details-row {
+        padding: 5px 0px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        span {
+            font-family: "Poppins";
+            color: #484848;
+        }
+        .stars {
+            padding-right: 20px;
+        }
+    }
+    &-user-reviews {
+        padding: 10px 0px;
+        p {
+            padding-top: 10px;
+            font-family: "Poppins";
+            color: #484848;
+        }
+        li {
+            padding-bottom: 20px;
+            border-bottom: 1px solid #EBEBEB;
+        }
+        &-user-info {
+            display: flex;
+            span {
+                color: #484848; 
+                padding: 40px 0px 0px 10px;
+                font-weight: 600;
+                font-size: 16px;
+            }
+        }
+        .no-reviews {
+            padding: 10px 0px;
+            font-weight: 500;
+        }
+    }
+}
+
+.user-profile-right {
+    .reviews-container {
+        .review-header{
+            display: block;
+        } 
+        .user-show-reviews-row-header > a {
+            padding-top: 10px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            p {
+                font-size: 12px;
+                font-weight: 500;
+                color: #767676;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+            img {
+                width: 50px;
+                height: 30px;
+            }
+        }
+        .user-show-reviews-row-body {
+            font-family: 'Poppins';
+            font-size: 16px;
+            font-weight: 500;
+            padding-top: 20px;
+        }
+        .user-show-reviews-row-reviewer {
+
+        }
+    }
+}

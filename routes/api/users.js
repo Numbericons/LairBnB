@@ -25,6 +25,20 @@ router.get('/:user_id', (req, res) => {
     })
 })
 
+router.get('/', (req, res) => {
+  return User.find({})
+    .lean()
+    .then(users => {
+      const allUsers = {};
+      users.forEach(user => {
+        const id = user._id;
+        let newUser = {id: id, email: user.email, username: user.username, image_url: user.image_url}
+        allUsers[id] = newUser;
+      })
+      res.json(allUsers);
+    })
+})
+
 router.patch('/edit', (req, res) => {
   User.findById(req.body.id)
     .then(user => {

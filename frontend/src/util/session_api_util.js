@@ -23,3 +23,7 @@ export const patchUser = (user) => {
 export const getUser = id => {
   return axios.get(`/api/users/${id}`);
 }
+
+export const getUsers = () => {
+  return axios.get('/api/users')
+}

@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { editUser, fetchUser } from '../../actions/session_actions';
 import { fetchLairs } from '../../actions/lairs_actions';
 import UserShow from './user_show';
-import { selectLairsByUserId } from '../../selectors/selector';
+import { selectLairsByUserId, selectReviewsByHostId } from '../../selectors/selector';
 
 const mapStateToProps = (state, ownProps) => {
   const userId = ownProps.match.params.user_id;
@@ -10,7 +10,10 @@ const mapStateToProps = (state, ownProps) => {
     userId,
     currentUser: state.entities.users[state.session.id] || {},
     user: state.entities.users[userId] || {},
-    lairs: selectLairsByUserId(state, userId)
+    allUsers: state.entities.users,
+    lairs: selectLairsByUserId(state, userId),
+    allLairs: state.entities.lairs,
+    reviews: selectReviewsByHostId(state, userId),
   }
 }
 

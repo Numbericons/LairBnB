@@ -1,5 +1,6 @@
 import React from 'react';
 import LairIndexItem from '../lairs/lair_index_item';
+import {Link} from 'react-router-dom';
 
 class UserShow extends React.Component {
   constructor(props) {
@@ -33,12 +34,14 @@ class UserShow extends React.Component {
         this.setState({
           image_url: user.image_url,
           host_description: user.host_description,
-          loading: false
         });
-      });
-    if (this.props.lairs.length === 0) {
-      this.props.fetchLairs();
-    }
+      })
+      .then(() => {
+        if (this.props.lairs.length === 0) {
+          this.props.fetchLairs();
+        }})
+      .then(() => this.setState({loading: false}))
+    
   }
 
   componentDidUpdate() {
@@ -51,7 +54,7 @@ class UserShow extends React.Component {
             host_description: user.host_description,
             loading: false
           });
-        });
+        })
     }
   }
 
@@ -141,6 +144,54 @@ class UserShow extends React.Component {
     }
   }
 
+  displayReviews() {
+    let reviews = this.props.reviews;
+    let lairs = this.props.allLairs;
+    let reviewees = this.props.allUsers;
+    let reviewItems;
+
+      if (reviews.length === 0 ){
+        reviewItems =  (
+          <div className="no-reviews">
+            <p>This villain's lairs have no reviews yet.</p>
+          </div>
+        )
+      } else {
+        reviewItems = reviews.map(review => {
+          let lair = lairs[review.lair_id];
+          return (
+            <li key={`user-show-review-${review._id}`} className="user-show-reviews-row">
+              <div className="user-show-reviews-row-header">
+                <Link to={`/lair/${lair._id}`}>
+                  <p>Stayed at {lair.name}</p>
+                  <img src={lair.image_url} alt="lair"/>
+                </Link>
+              </div>
+              <div className="user-show-reviews-row-body">
+                {review.body}
+              </div>
+              <div className="review-user-reviews-user-info">
+                <img className="user-pic" src={reviewees[review.guest_id].image_url} alt="profile" />
+                <span>{reviewees[review.guest_id].username}</span>
+              </div>
+            </li>
+          )
+        })
+      }
+    
+    return (
+      <div className="review-header">
+        <div className="review-header-count">
+          {reviews.length}&nbsp;
+          {reviews.length === 1 ? "Review" : "Reviews"}&nbsp;
+        </div>
+        <ul className="review-user-reviews">
+          {reviewItems}
+        </ul>
+      </div>
+    )
+  }
+
   displayListings() {
     if (this.props.lairs.length === 0) {
       return <p>This user has no listings yet.</p>
@@ -211,6 +262,9 @@ class UserShow extends React.Component {
             {this.props.user.username}'s listings
           </h3>
           {this.displayListings()}
+          <div className="reviews-container">
+              {this.displayReviews()}
+          </div>
         </div>
       </section>
     )
