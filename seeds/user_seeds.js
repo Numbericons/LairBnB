@@ -54,7 +54,7 @@ const seedUsers = () => {
       new User({
         username: "Zachary Oliver",
         email: "zo@comcast.net",
-        image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/villains/zachary.jpeg",
+        image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/villains/tornado+.jpg",
         password: "password"
       })
     );
@@ -306,6 +306,72 @@ const seedUsers = () => {
         image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/villains/Francisco_Scaramanga_(Christopher_Lee)_-_Profile.png",
         password: "neverunderestimate",
         host_description: "Mr. Fat has just resigned. I am the new Chairman of the Board. [he goes outside, looks over at Fat's family tomb] He always did like that mausoleum. Put him in it."
+      })
+    );
+
+    userArray.push(
+      new User({
+        username: "Hugo Strange",
+        email: "baldyBald@bald.Bald",
+        image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/villains/hugoStrange.jpg",
+        password: "mrCleanIsMyHero",
+        host_description: "Do not question my sanity. I am a model of sanity!"
+      })
+    );
+
+    userArray.push(
+      new User({
+        username: "Lucifer",
+        email: "fallen@angel.co",
+        image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/villains/lucifer.jpg",
+        password: "dante666",
+        host_description: "Never can true reconcilement grow where wounds of deadly hate have pierced so deep..."
+      })
+    );
+
+    userArray.push(
+      new User({
+        username: "Dr. Doom",
+        email: "doomedone@doom.doom",
+        image_url:
+          "https://lairbnb-dev.s3.us-east-2.amazonaws.com/villains/dr_doom.jpeg",
+        password: "doomedone",
+        host_description:
+          "The son of a Romani witch, Von Doom has been depicted as a supervillain, the archenemy of the Fantastic Four, and the leader of the fictional nation called Latveria."
+      })
+    );
+
+    userArray.push(
+      new User({
+        username: "Dr. Octopus",
+        email: "noOneWillDateMe@2ManyArms.org",
+        image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/villains/DrOctopus2.png",
+        password: "crustacean",
+        host_description: "Do you know the best way to get me to laugh? Give me ten-tickles, HAHA!"
+      })
+    );
+    
+    userArray.push(
+      new User({
+        username: "Rick Sanchez",
+        email: "shwifty@pocketmortys.com",
+        image_url:
+          "https://lairbnb-dev.s3.us-east-2.amazonaws.com/villains/evil_rick_morty.jpeg",
+        password: "wubalubadubdub",
+        host_description:
+          "Known for his reckless, nihilistic behavior and pessimistic personality, the character has been well received. He is a sociopathic mad scientist who seems to know everything in the universe and thus finds life a traumatizing and pointless experience. However, despite assuming to be the smartest person in the universe, there have been times where he has been wrong."
+      })
+    );
+
+    userArray.push(
+      new User({
+        username: "Walter White",
+        email: "fgraymatter@malcom.com",
+        image_url:
+          "https://lairbnb-dev.s3.us-east-2.amazonaws.com/villains/walter+white.jpeg",
+        password: "cranston",
+        host_description:
+          "A chemistry honors graduate of the California Institute of Technology, Walt co-founded the company Gray Matter Technologies with his close friend Elliott Schwartz and his then-girlfriend Gretchen."
       })
     );
 

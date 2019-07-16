@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class BookingIndexItem extends React.Component {
     constructor(props) {
@@ -25,12 +26,14 @@ class BookingIndexItem extends React.Component {
                 </div>
                 <div className="booking-index-info-container">
                     <div className="booking-index-dates">{new Date(booking.arrival_date).toDateString()} - {new Date(booking.departure_date).toDateString()}</div>
-                    <div className="booking-index-location">{lair.location}</div>
+                    <Link to={`/lair/${lair._id}`}>
+                        <div className="booking-index-location">{lair.location}</div>
+                    </Link>
                     <div className="booking-index-type">1 {lair.type} reservation</div>
                     <div className="user-profile-left-line">
                         <div className="line"></div>
                     </div>
-                    <button onClick={this.handleDelete}>delete dat</button>
+                    <button className="cancel-booking-button" onClick={this.handleDelete}>cancel booking</button>
                 </div>
             </div>
         )

@@ -2,12 +2,37 @@ import React from 'react';
 import BookingIndexItemContainer from "./booking_index_item_container";
 
 class BookingIndex extends React.Component {
+    constructor(props) {
+        super(props);
+        this.sortedBookings = this.sortedBookings.bind(this);
+    }
     componentDidMount() {
         this.props.fetchBookings();
     }
 
+    componentDidUpdate() {
+        this.props.fetchBookings();
+    }
+
+    sortedBookings() {
+        let { bookings } = this.props;
+        let swap = true;
+        while (swap === true) {
+            swap = false;
+            for (let i=0;i<bookings.length - 1;i++) {
+                if ( bookings[i].arrival_date > bookings[i+1].arrival_date) {
+                    let bookingSwap = bookings[i];
+                    bookings[i] = bookings[i+1];
+                    bookings[i+1] = bookingSwap;
+                    swap = true;
+                }
+            }
+        }
+        return bookings;
+    }
+
     render() {
-        const { bookings } = this.props;
+        let bookings = this.sortedBookings();
         if (bookings.length === 0) {
             return (
                 <div className="no-bookings-index-container">
