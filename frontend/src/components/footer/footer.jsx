@@ -1,6 +1,13 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
-const Footer = () => {
+const Footer = (props) => {
+    if (props.location.pathname.startsWith("/s/stays")) {
+        return (
+            <div>                
+            </div>
+        )
+    }
     return (
         <div className="footer-container">
             <div className="footer-content">
@@ -38,4 +45,4 @@ const Footer = () => {
     )
 }
 
-export default Footer;
+export default withRouter(Footer);

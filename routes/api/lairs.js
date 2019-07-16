@@ -14,23 +14,34 @@ router.get('/', (req, res) => {
             lairs.forEach( lair => {
                 const id = lair._id//.id.join("")
                 newLairs[id] = lair;
-            })
+            })            
             res.json(newLairs)
         })
         .catch(err => res.status(404).json({nolairsfound: 'No lairs found'}))
 })
 
-router.get('/bounds/:bounds', (req, res) => {
-    let bounds = req.params.bounds;
-    Lair.find({
-        lat: { $gt: minLat, $lt: maxLat },
-        lng: { $gt: minLng, $lt: maxLng }
+router.get('/bounds/:bounds', (req, res) => {    
+    let bounds = JSON.parse(req.params.bounds);
+    return Lair.find({
+        lat: { $gt: bounds.southWest.lat, $lt: bounds.northEast.lat },
+        lng: { $gt: bounds.southWest.lng, $lt: bounds.northEast.lng }
     })
     .lean()
     .then(lairs => {
-        return res.json(lairs)
+        const lairIds = lairs.map(lair => lair._id);
+        Review.find({
+            'lair_id': {
+                $in: lairIds
+            }
+        }).then(reviews => {
+            const lairReviews = {};
+            reviews.forEach(review => {
+                lairReviews[review.lair_id] = lairReviews[review.lair_id] || [];
+                lairReviews[review.lair_id].push(review);
+            })
+            return res.json({lairs, reviews: lairReviews})
+        })
     })
-    
 })
 
 router.get('/:lair_id', (req, res) => {

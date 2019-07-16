@@ -35,11 +35,9 @@ const App = (props) => (
       <Route path="/users/show/:user_id" component={UserShowContainer} />
       <Route path="/s/:lair_type/all" component={TypeLairIndexContainer} />
       <Route path="/lair/:lair_id" component={LairShowContainer} />
-      <Route path="/s/:location/stays" component={LocationLairsIndexContainer} />
+      <Route path="/s/stays/:location" component={LocationLairsIndexContainer} />
     </Switch>
     <Route path="/" component={Footer} />
-
-
   </section> 
     
 );

@@ -12,15 +12,15 @@ export default class MarkerManager {
 
         //remove lairs
         let lairsToRemove = Object.keys(this.markers).filter(key => !lairsObj[key])
-        lairsToRemove.forEach(lair => {
-            this.removeMarker(this.markers[lair._id])
+        lairsToRemove.forEach(lairId => {
+            this.removeMarker(this.markers[lairId])
         })
 
         //add lairs
 
         lairs.forEach(lair => {
             if (!this.markers[lair._id]) {
-                let marker = this.createMarkerFromLair(lair);
+                this.createMarkerFromLair(lair);
             }
         })
         

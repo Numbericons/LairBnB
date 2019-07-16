@@ -7,17 +7,16 @@ const msp = (state, ownProps) => {
   const latMatch = qString.match(/\?lat=(.*)&/);
   const lngMatch = qString.match(/lng=(.*)&?/);
 
-  const lairLocation = ownProps.match.params.lair_location;
+  const lairLocation = ownProps.match.params.location.replace(/_/g, " ");
   return ({
-      // lairs: selectLairsByLocation(state, latMatch & latMatch[1], lngMatch & lngMatch[1]),
-      lairs: Object.values(state.entities.lairs),
-      lairLocation
+      lairLocation,
+      lat: latMatch && Number(latMatch[1]),
+      lng: lngMatch && Number(lngMatch[1])
   })
 }
 
 const mdp = (dispatch) => {
     return ({
-        // updateBounds: (bounds) => dispatch(updateLairs(bounds))
     })
 }
 
