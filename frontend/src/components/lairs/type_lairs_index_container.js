@@ -14,7 +14,7 @@ const msp = (state, ownProps) => {
   return ({
     lairType,
     lairs: lairs
-  })
+  }) 
 }
 
 const mdp = (dispatch) => {

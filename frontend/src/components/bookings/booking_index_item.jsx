@@ -9,6 +9,9 @@ class BookingIndexItem extends React.Component {
 
     handleDelete() {
         this.props.destroyBooking(this.props.booking._id)
+            .then(() => {
+                this.props.fetchBookings();
+            })
     }
 
     componentDidMount() {

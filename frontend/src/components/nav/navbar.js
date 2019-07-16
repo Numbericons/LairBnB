@@ -139,10 +139,10 @@ class NavBar extends React.Component {
     if (this.props.currentUser) {
       return (
         <nav className="nav-session-container">
-          <button className="btn-session">
+          {/* <button className="btn-session">
             <Link to="/bookings/index">Trips</Link>
-          </button>
-          <button className="btn-session">Messages</button>
+          </button> */}
+          <Link className="btn-session" to="/bookings/index">Trips</Link>
           <div className="btn-session">
             <img
               className="profile-pic"
@@ -189,7 +189,7 @@ class NavBar extends React.Component {
             id="nav-search-bar"
             className="nav-search"
             value={this.state.input}
-            placeholder='Try "Mordor"'
+            placeholder='Try "San Francisco"'
             onChange={this.changeInput("input")}
           />
         </form>

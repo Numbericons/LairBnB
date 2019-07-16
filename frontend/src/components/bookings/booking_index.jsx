@@ -10,10 +10,6 @@ class BookingIndex extends React.Component {
         this.props.fetchBookings();
     }
 
-    componentDidUpdate() {
-        this.props.fetchBookings();
-    }
-
     sortedBookings() {
         let { bookings } = this.props;
         let swap = true;
@@ -48,7 +44,12 @@ class BookingIndex extends React.Component {
                 <div className="booking-index-container">
                     <div className="booking-index-header">Upcoming plans</div>
                     <ul className="booking-formatter">
-                        {bookings.map(booking => <BookingIndexItemContainer key={booking._id} booking={booking} />)}
+                        {bookings.map(booking => (                        
+                            <BookingIndexItemContainer 
+                                key={booking._id}
+                                booking={booking}
+                            />
+                        ))}
                     </ul>
                 </div>
             )
