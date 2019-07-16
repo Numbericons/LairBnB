@@ -25,5 +25,4 @@ yarn-error.log*
 /src/config
 
 /src/stylesheets/output.css.map
-/src/stylesheets/output.css
 /src/stylesheets/.sass-cache
