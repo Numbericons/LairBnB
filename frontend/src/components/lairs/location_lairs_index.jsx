@@ -1,5 +1,4 @@
 import React from 'react';
-import LairIndexItem from './lair_index_item';
 import LairMap from './lair_map';
 import { getLairByBounds } from '../../util/lair_api_util';
 import { Link } from 'react-router-dom';

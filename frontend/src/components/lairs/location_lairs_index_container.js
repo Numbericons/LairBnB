@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import LocationLairIndex from './location_lairs_index';
-import { selectLairsByLocation } from '../../selectors/selector';
 
 const msp = (state, ownProps) => {
   const qString = ownProps.location.search;

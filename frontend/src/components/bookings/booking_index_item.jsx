@@ -25,7 +25,7 @@ class BookingIndexItem extends React.Component {
         return (
             <div className="actual-booking-container">
                 <div className="booking-index-img-container">
-                    <img className="booking-index-img" src={lair.image_url} />
+                    <img className="booking-index-img" src={lair.image_url} alt="lair" />
                 </div>
                 <div className="booking-index-info-container">
                     <div className="booking-index-dates">{new Date(booking.arrival_date).toDateString()} - {new Date(booking.departure_date).toDateString()}</div>

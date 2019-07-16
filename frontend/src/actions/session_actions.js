@@ -40,7 +40,6 @@ export const fetchUser = id => dispatch => {
 export const fetchUsers = () => dispatch => {
     return APIUtil.getUsers()
         .then(users => {
-            console.log(users.data)
             return dispatch(receiveUsers(users.data))
         })
 }
@@ -60,7 +59,7 @@ export const signup = user => dispatch => (
         return dispatch(login({email, password}));
     }, err => {
         dispatch(receiveErrors(err.response.data));
-        throw ""
+        throw Error
     })
 );
 
@@ -75,7 +74,7 @@ export const login = user => dispatch => (
     })
     .catch(err => {
         dispatch(receiveErrors(err.response.data));
-        throw ""
+        throw Error
     })
 )
 

@@ -35,7 +35,7 @@ class BookingIndex extends React.Component {
                     <div className="no-booking-index-header">Upcoming plans</div>
                     <div className="booking-index-none">You have no upcoming trips. Start exploring ideas for your next trip.</div>
                     <div className='booking-none-pic-container'>
-                        <img className='booking-none-pic' src="https://lairbnb-dev.s3.us-east-2.amazonaws.com/splash/airBnbBooking.png"/>
+                        <img className='booking-none-pic' alt="no bookings" src="https://lairbnb-dev.s3.us-east-2.amazonaws.com/splash/airBnbBooking.png"/>
                     </div>
                 </div>
             )
