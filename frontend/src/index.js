@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
       resolve()
     }
     const script = document.createElement("script");
+    console.log(google);
     script.src = `https://maps.googleapis.com/maps/api/js?key=${google}&callback=googleMapsLoaded&libraries=places`;
     script.type = "text/javascript";
     document.head.appendChild(script);
