@@ -717,7 +717,7 @@ const seedLairs = () => {
           description:
             "This beige 1986 Fleetwood Bounder recreation is perfect for all of your cooking needs! Enjoy the beautiful distressed aesthetic. Features homemade batteries and natural heating.",
           image_url:
-            "https://lairbnb-dev.s3.us-east-2.amazonaws.com/lairs/breaking_bad_lab2.jpeg",
+            "https://lairbnb-dev.s3.us-east-2.amazonaws.com/lairs/breaking_bad_lab_3.png",
           location: "New Mexico",
           lat: 35.0826103,
           lng: -106.8165663,

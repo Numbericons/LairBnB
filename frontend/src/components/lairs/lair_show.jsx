@@ -201,7 +201,9 @@ class LairShow extends React.Component {
                         return (                        
                             <li key={`lairshowreview-${review._id}`}>
                                 <div className="review-user-reviews-user-info">
-                                    <img className="user-pic" src={user.image_url} alt="profile"/>
+                                    <Link to={`/users/show/${user._id}`}>
+                                        <img className="user-pic" src={user.image_url} alt="profile"/>
+                                    </Link>
                                     <span>{user.username}</span>
                                 </div>
                                 <p>

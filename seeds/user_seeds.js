@@ -54,7 +54,7 @@ const seedUsers = () => {
       new User({
         username: "Zachary Oliver",
         email: "zo@comcast.net",
-        image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/villains/zachary.jpeg",
+        image_url: "https://lairbnb-dev.s3.us-east-2.amazonaws.com/villains/tornado+.jpg",
         password: "password"
       })
     );

@@ -14,58 +14,86 @@ const seedBookings = () => {
     return new Promise((res, rej) => {
         User.findOne({ username: "Demo User" })
             .then(user => {
-                newBooking = new Booking({
-                    lair_id: Lair.findOne({ name: "Thai Island" }),
-                    guest_id: user.id,
-                    num_guests: 2,
-                    arrival_date: "2019 - 09 - 17T19: 00: 00.000 + 00: 00",
-                    departure_date: "2019 - 09 - 20T19: 00: 00.000 + 00: 00"
-                });
-                newBooking.save().then(booking => {
-                    console.log(`Success: booking was created`);
-                }, err => { console.log(`booking was unable to save due to: ${err}`) })
+                Lair.findOne({ name: "Thai Island" })
+                    .then(lair => {
+                        let arrDate = new Date();
+                        arrDate.setDate(33);
+                        let depDate = new Date();
+                        depDate.setDate(38);
+                        newBooking = new Booking({
+                          lair_id: lair.id,
+                          guest_id: user.id,
+                          num_guests: 2,
+                          arrival_date: arrDate,
+                          departure_date: depDate
+                        });
+                        newBooking.save().then(booking => {
+                            console.log(`Success: booking was created`);
+                        }, err => { console.log(`booking was unable to save due to: ${err}`) })
+                    })
             })
 
         User.findOne({ username: "Demo User" })
             .then(user => {
-                newBooking = new Booking({
-                    lair_id: Lair.findOne({ name: "Death Star II" }),
-                    guest_id: user.id,
-                    num_guests: 6,
-                    arrival_date: "2019 - 09 - 21T19: 00: 00.000 + 00: 00",
-                    departure_date: "2019 - 09 - 24T19: 00: 00.000 + 00: 00"
-                });
-                newBooking.save().then(booking => {
-                    console.log(`Success: booking was created`);
-                }, err => { console.log(`booking was unable to save due to: ${err}`) })
+                Lair.findOne({ name: "Death Star II" })
+                    .then(lair => {
+                        let arrDate = new Date();
+                        arrDate.setDate(39);
+                        let depDate = new Date();
+                        depDate.setDate(42);
+                        newBooking = new Booking({
+                            lair_id: lair.id,
+                            guest_id: user.id,
+                            num_guests: 6,
+                            arrival_date: arrDate,
+                            departure_date: depDate
+                        });
+                        newBooking.save().then(booking => {
+                            console.log(`Success: booking was created`);
+                        }, err => { console.log(`booking was unable to save due to: ${err}`) })
+                    })
             })
 
         User.findOne({ username: "Demo User" })
             .then(user => {
-                newBooking = new Booking({
-                    lair_id: Lair.findOne({ name: "Meth Lab RV" }),
-                    guest_id: user.id,
-                    num_guests: 2,
-                    arrival_date: "2019 - 10 - 10T19: 00: 00.000 + 00: 00",
-                    departure_date: "2019 - 10 - 12T19: 00: 00.000 + 00: 00"
-                });
-                newBooking.save().then(booking => {
-                    console.log(`Success: booking was created`);
-                }, err => { console.log(`booking was unable to save due to: ${err}`) })
+                Lair.findOne({ name: "Maleficent's Castle" })
+                    .then(lair => {
+                        let arrDate = new Date();
+                        arrDate.setDate(44);
+                        let depDate = new Date();
+                        depDate.setDate(60);
+                        newBooking = new Booking({
+                            lair_id: lair.id,
+                            guest_id: user.id,
+                            num_guests: 2,
+                            arrival_date: arrDate,
+                            departure_date: depDate
+                        });
+                        newBooking.save().then(booking => {
+                            console.log(`Success: booking was created`);
+                        }, err => { console.log(`booking was unable to save due to: ${err}`) })
+                    })
             })
 
         User.findOne({ username: "Demo User" })
             .then(user => {
-                newBooking = new Booking({
-                    lair_id: Lair.findOne({ name: "Dracula's Castle" }), 
-                    guest_id: user.id,
-                    num_guests: 1,
-                    arrival_date: "2019 - 11 - 15T19: 00: 00.000 + 00: 00",
-                    departure_date: "2019 - 11 - 17T19: 00: 00.000 + 00: 00"
-                });
-                newBooking.save().then(booking => {
-                    console.log(`Success: booking was created`);
-                }, err => { console.log(`booking was unable to save due to: ${err}`) })
+                Lair.findOne({ name: "Meth Lab RV" })
+                    .then(lair => {
+                        let arrDate = new Date();
+                        arrDate.setDate(70);
+                        let depDate = new Date();
+                        depDate.setDate(100);
+                        newBooking = new Booking({
+                            lair_id: lair.id, 
+                            guest_id: user.id,
+                            num_guests: 1,
+                            arrival_date: arrDate,
+                            departure_date: depDate
+                        });
+                        newBooking.save().then(booking => {
+                            console.log(`Success: booking was created`);
+                        }, err => { console.log(`booking was unable to save due to: ${err}`) })
+                    })
             })
     })
 }

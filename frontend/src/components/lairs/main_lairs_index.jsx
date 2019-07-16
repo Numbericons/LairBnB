@@ -1,9 +1,10 @@
-import React from 'react'
+import React from 'react';
 import MainLairTypeIndexItem from './main_lair_type_index_item';
 import LairIndexItem from './lair_index_item';
-import { Link } from 'react-router-dom'
-import mean from 'lodash.mean'
-import samplesize from 'lodash.samplesize'
+import { Link } from 'react-router-dom';
+import mean from 'lodash.mean';
+import samplesize from 'lodash.samplesize';
+import {shuffle} from 'lodash';
 
 class MainLairIndex extends React.Component {
     componentDidMount(){
@@ -44,7 +45,8 @@ class MainLairIndex extends React.Component {
         // Create a tile for each type of lair
         let lairTypeItems = {};
         types.forEach(type => {
-            Object.keys(this.props.lairs).forEach(lairId => {
+            let randomCategories = shuffle(Object.keys(this.props.lairs));
+            randomCategories.forEach(lairId => {
                 let lair = this.props.lairs[lairId];
                 if (lair.type === type && !lairTypeItems[type]){
                     let typeStr = type.charAt(0).toUpperCase() + type.slice(1)
