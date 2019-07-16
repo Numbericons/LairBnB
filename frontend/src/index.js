@@ -6,7 +6,7 @@ import { logout } from './actions/session_actions';
 import "./stylesheets/output.css"
 import jwt_decode from 'jwt-decode';
 import { setAuthToken } from './util/session_api_util';
-import  {google} from './config/keys'
+import  {google} from './config/keys_prod'
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
