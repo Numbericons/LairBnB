@@ -133,6 +133,10 @@ class ReserveForm extends React.Component {
             </div>
         )
     }
+
+    disableBookedDays() {
+        
+    }
     
     render(){
       const number_of_guests = [];

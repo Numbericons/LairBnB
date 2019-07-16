@@ -28,6 +28,24 @@
         border-radius: 3px;
         background-position-y: center;
         margin-top: 10px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        button {
+            width: 150px;
+            margin: 0 auto;
+            text-align: center;
+            background-color: white;
+            color: #484848;
+            padding: 15px 20px;
+            border-radius: 5px;
+            border: 1px solid #EBEBEB;
+            font-family: 'Poppins';
+            font-weight: 600;
+            &:hover {
+                background-color: #EBEBEB;
+            }
+        }
     }
     &-plus-text {
         font-family: 'Blacksword';
@@ -36,7 +54,7 @@
         margin: 0 auto;
         text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.8);
         text-align: center;
-        padding: 90px;
+        padding: 90px 90px 0px 90px;
     }
 }
 
@@ -117,4 +135,22 @@
 .fa-star, .fa-star-half-alt {
     color: #006c70;
     font-size: 13px;
+}
+
+.lair-type-header {
+    color: #484848;
+    font-weight: 900;
+    font-size: 46px;
+}
+
+.location-lairs-index-container {
+    display: flex;
+}
+
+#map-container {
+    height: calc(100vh - 95px);
+    width: 73%;
+    float: right;
+    top: 91px;
+    position: sticky !important;
 }

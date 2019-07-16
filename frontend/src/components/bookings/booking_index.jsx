@@ -6,10 +6,6 @@ class BookingIndex extends React.Component {
         this.props.fetchBookings();
     }
 
-    componentDidUpdate() {
-        this.props.fetchBookings();
-    }
-
     render() {
         const { bookings } = this.props;
         if (bookings.length === 0) {

@@ -25,3 +25,15 @@ export const selectReviewsByHostId = (state, hostId) => {
   }
   return allReviews.filter(review => hostsLairs[review.lair_id]);
 }
+
+export const selectLairsByLocation = (state, lat, lng) => {
+  if (!lat || !lng) {
+    return [];
+  }
+  const allLairs = Object.values(state.entities.lairs);
+}
+
+export const selectLairsByCost = (state, minCost= 0)  => {
+  const allLairs = Object.values(state.entities.lairs);
+  return allLairs.filter(lair => lair.rate >= minCost)
+}

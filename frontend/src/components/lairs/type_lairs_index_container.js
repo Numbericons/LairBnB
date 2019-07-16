@@ -1,12 +1,19 @@
 import { connect } from 'react-redux';
 import TypeLairIndex from './type_lairs_index';
-import { selectLairsByType } from '../../selectors/selector';
+import { selectLairsByType, selectLairsByCost } from '../../selectors/selector';
 
 const msp = (state, ownProps) => {
   const lairType = ownProps.match.params.lair_type;
+  let lairs = [];
+  if (lairType === "Luxury") {
+    lairs = selectLairsByCost(state, 3000);
+  } else {
+    lairs = selectLairsByType(state, lairType);
+  }
+
   return ({
-    lairs: selectLairsByType(state, lairType),
-    lairType
+    lairType,
+    lairs: lairs
   })
 }
 

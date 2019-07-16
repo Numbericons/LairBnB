@@ -86,6 +86,9 @@ class MainLairIndex extends React.Component {
                 <h3 className="lair-index-sub-header">A selection of places to stay verified for modern luxury and design</h3>
                 <div className="lair-index-plus-image">
                     <h4 className="lair-index-plus-text">Evil Luxury</h4>
+                    <Link to={`/s/Luxury/all`}>
+                        <button>EXPLORE LUXURY ></button>
+                    </Link>
                 </div>
             </div>
         )

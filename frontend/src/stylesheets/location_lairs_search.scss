@@ -1,0 +1,63 @@
+.location-lairs-index-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px 0px 20px 20px;
+    .lair-tile {
+        width: 725px;
+        height: 200px;
+        border: 1px solid #EBEBEB;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        margin-right: 20px;
+        padding: 0;
+        display: flex;
+        flex-direction: row;
+        .lair-tile-image {
+            height: 100%;
+            background-size: cover;
+            width: 500px;
+        }
+        .lair-tile-info {
+            padding: 0px 20px;
+            width: 100%;
+            p {
+                font-family: 'Poppins', sans-serif;
+                color: #767676;
+                font-size: 12px;
+            }
+        }
+        .lair-tile-description {
+            font-family: 'Poppins', sans-serif;
+            text-transform: uppercase;
+            color: #767676;
+            font-weight: 600;
+            font-size: 12px;
+            padding-top: 5px;
+        }
+        .lair-tile-title {
+            color: #4d4d4d;
+            font-size: 20px;
+        }
+        .lair-tile-bottom-info > span {
+            color: #4d4d4d;
+            font-size: 18px;
+        }
+        .lair-tile-bottom-info {
+            margin-top: 100px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        &:hover {
+            box-shadow: rgba(0,0,0,.12) 0px 0px 12px;
+        }
+    }
+    h1 {
+        font-family: 'Poppins';
+        color: #484848;
+        font-weight: 600;
+        font-size: 25px;
+        margin-bottom: 20px;
+    }
+}

@@ -6,7 +6,7 @@
 }
 
 .nav-container {
-    box-sizing: border-box;    
+    box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -14,6 +14,7 @@
     padding: 0 30px;
     font-size: 18px;
     font-weight: 700;
+    z-index: 3;
 }
 
 .fa-airbnb {
@@ -47,11 +48,14 @@
 .nav-splash {
     position: absolute;
     z-index: 2;
-    
+    background-color: transparent;
 }
 
 .nav-nonsplash {
-    position: relative;
+    // position: relative;
+    position: sticky !important;
+    top:0;
+    background-color: white;
     border-bottom: 1px solid #e4e4e4;
     .fa-airbnb {
         color: #FF5A5F;

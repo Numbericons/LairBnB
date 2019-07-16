@@ -7,13 +7,16 @@ class NavBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      modal: ""
+      modal: "",
+      input: ""
     };
     this.logoutUser = this.logoutUser.bind(this);
     this.toggleUserDropdown = this.toggleUserDropdown.bind(this);
     this.handleClickOutside = this.handleClickOutside.bind(this);
     this.goToUserShow = this.goToUserShow.bind(this);
     this.gotoBookings = this.gotoBookings.bind(this);
+    this.changeInput = this.changeInput.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   goToUserShow() {
@@ -43,6 +46,22 @@ class NavBar extends React.Component {
     let input = document.getElementById('nav-search-bar');
     if (input) {
       this.autocomplete = new window.google.maps.places.Autocomplete(input);
+      let address;
+      this.autocomplete.addListener("place_changed", () => {
+        if (!this.autocomplete.getPlace().formatted_address) {
+          address = this.autocomplete.getPlace().name;
+          this.setState({
+            input: address
+          });
+          this.handleSubmit();
+        } else {
+          address = this.autocomplete.getPlace().formatted_address;
+          this.setState({
+            input: address
+          });
+          this.handleSubmit();
+        }
+      });
     }
     this.props.fetchLairs();
     this.props.fetchReviews();
@@ -50,10 +69,26 @@ class NavBar extends React.Component {
   }
 
   componentDidUpdate() {
-    if (this.props.currentUser && !this.autocomplete) {
+    if (!this.autocomplete) {
       let input = document.getElementById('nav-search-bar');
       if (input) {
         this.autocomplete = new window.google.maps.places.Autocomplete(input);
+        let address;
+        this.autocomplete.addListener("place_changed", () => {
+          if (!this.autocomplete.getPlace().formatted_address) {
+            address = this.autocomplete.getPlace().name;
+            this.setState({
+              input: address
+            });
+            this.handleSubmit();
+          } else {
+            address = this.autocomplete.getPlace().formatted_address;
+            this.setState({
+              input: address
+            });
+            this.handleSubmit();
+          }
+        });
       }
     }
   }
@@ -137,20 +172,48 @@ class NavBar extends React.Component {
       )
     }
   }
+
+  changeInput(key) {
+    return (event) => {
+      event.preventDefault();
+      this.setState({[key]: event.target.value})
+    }
+  }
+  
   displaySearchInput() {
     if ((this.props.location.pathname !== "/" || this.props.currentUser) && !this.props.location.pathname.startsWith("/users/show")) {
       return (
-        <div>
+        <form onSubmit={this.handleSubmit}>
           <i className="fas fa-search" />
           <input
             id="nav-search-bar"
             className="nav-search"
+            value={this.state.input}
             placeholder='Try "Mordor"'
+            onChange={this.changeInput("input")}
           />
-        </div>
+        </form>
       )
     }
   }
+  
+  handleSubmit(e) {
+    const geocoder = new window.google.maps.Geocoder();
+
+    geocoder.geocode({ address: this.state.input }, (results, status) => {
+      if (status === window.google.maps.GeocoderStatus.OK) {
+        const lat = results[0].geometry.location.lat();
+        const lng = results[0].geometry.location.lng();
+        const loc = results[0].formatted_address.replace(/ /g, "_");
+        this.props.history.push(`/s/stays/${loc}?lat=${lat}&lng=${lng}`);
+      } else {
+        // your idea about objects here, maybe do a backend search
+        this.props.history.push(`/listings?lat=34.019956&lng=-118.824270`);
+      }
+    });
+    this.setState({input: ""});
+  }
+
   render() {
     const navSplashClass = this.props.location.pathname === "/" && !this.props.currentUser ? (
       "nav-container nav-splash"
