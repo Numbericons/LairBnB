@@ -13,7 +13,7 @@ class TypeLairsIndex extends React.Component {
     render() {
         return (
             <div className="lair-index-container">
-            <h1 className='lair-type-header'>{this.props.lairType.charAt(0).toUpperCase() + this.props.lairType.slice(1) + "s"}</h1>
+            <h1 className='lair-type-header'>{this.props.lairType.charAt(0).toUpperCase() + this.props.lairType.slice(1)} Lairs</h1>
               <div>
                 <h4 className='lair-index-header'>Where to stay</h4>
                 <ul className="lair-row-container">

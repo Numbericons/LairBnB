@@ -18,7 +18,9 @@ export const selectLairsByLocation = (state, lat, lng) => {
     return [];
   }
   const allLairs = Object.values(state.entities.lairs);
-  // return allLairs.filter(lair => {
-  //   if (lair.lat )
-  // })
+}
+
+export const selectLairsByCost = (state, minCost= 0)  => {
+  const allLairs = Object.values(state.entities.lairs);
+  return allLairs.filter(lair => lair.rate >= minCost)
 }
