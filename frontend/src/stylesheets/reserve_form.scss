@@ -8,9 +8,15 @@
         border-radius: 3px;
         font-family: 'Poppins';
         height: 100%;
+        top: 100px;
         .error-text {
             font-size: 12px;
             text-align: center;
+        }
+        @media screen and (max-width: $break-small) {
+            position: block;
+            margin: 0 auto;
+            top: 0;
         }
     }
     &-details {

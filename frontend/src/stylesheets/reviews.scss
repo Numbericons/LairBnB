@@ -38,6 +38,9 @@
         .stars {
             padding-right: 20px;
         }
+        @media screen and (max-width: $break-med) {
+            display: block;
+        }
     }
     &-user-reviews {
         padding: 10px 0px;

@@ -143,6 +143,7 @@ class ReserveForm extends React.Component {
       for (let i = 2; i <= 16; i++) {
         number_of_guests.push(<option value={i} key={i} default>{i} guests</option>)
       }
+    const num_months = window.innerWidth <= 700 ? 1 : 2;
        return (
            <div className="reserve-form-container">
                <div className="reserve-form-details">
@@ -160,6 +161,7 @@ class ReserveForm extends React.Component {
                       onDatesChange={({ startDate, endDate }) => this.setState({ departure_date: endDate, arrival_date: startDate })}
                       focusedInput={this.state.focusedInput}
                       onFocusChange={focusedInput => this.setState({ focusedInput })}
+                       numberOfMonths={num_months}
                    />
                   <h3 className="reserve-form-sub-header">Guests</h3>
                     <select className="listing-show-guest-dropdown">

@@ -45,6 +45,10 @@
     &:hover {
         border-bottom: 2px solid white;
     }
+    @media screen and (max-width: $break-small) {
+        margin: 0;
+        width: 80px;
+    }
 }
 
 .nav-splash {

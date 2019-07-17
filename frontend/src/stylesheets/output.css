@@ -79,6 +79,10 @@ body {
   border-bottom: 2px solid transparent; }
   .btn-session:hover {
     border-bottom: 2px solid white; }
+  @media screen and (max-width: 700px) {
+    .btn-session {
+      margin: 0;
+      width: 80px; } }
 
 .nav-splash {
   position: absolute;
@@ -302,6 +306,10 @@ body {
   margin-top: 20vh;
   margin-left: 14vw;
   margin-bottom: 26vh; }
+  @media screen and (max-width: 700px) {
+    .booking-box {
+      margin-left: 10px;
+      width: calc(100% - 100px); } }
 
 .booking-box-title {
   font-size: 30px;
@@ -436,6 +444,10 @@ body {
   text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.8);
   text-align: center;
   padding: 90px 90px 0px 90px; }
+  @media screen and (max-width: 700px) {
+    .lair-index-plus-text {
+      margin-top: 50px;
+      padding: 0; } }
 
 .lair-row-container {
   display: flex;
@@ -443,6 +455,9 @@ body {
   align-items: flex-end;
   flex-wrap: wrap;
   padding: 15px 0px 15px 0px; }
+  @media screen and (max-width: 700px) {
+    .lair-row-container > a {
+      width: 100%; } }
 
 .lair-type-tile {
   height: 300px;
@@ -455,6 +470,9 @@ body {
   display: flex;
   align-items: flex-end;
   justify-content: center; }
+  @media screen and (max-width: 700px) {
+    .lair-type-tile {
+      width: 100%; } }
 
 .lair-info {
   height: 50px; }
@@ -644,6 +662,10 @@ input[type="submit"] {
   margin: 0 auto;
   display: flex;
   flex-direction: row; }
+  @media screen and (max-width: 700px) {
+    .footer-content {
+      width: 100%;
+      display: block; } }
 
 .column {
   width: 150px;
@@ -659,6 +681,11 @@ input[type="submit"] {
     font-family: 'Poppins', sans-serif;
     color: #767676;
     font-size: 14px; }
+  @media screen and (max-width: 700px) {
+    .column {
+      margin: 0;
+      width: 100%;
+      text-align: center; } }
 
 .show-img-container {
   height: 600px; }
@@ -669,7 +696,11 @@ input[type="submit"] {
   object-position: center; }
 
 .lair-items-container {
-  width: 600px; }
+  max-width: 600px;
+  width: calc(100% - 350px); }
+  @media screen and (max-width: 700px) {
+    .lair-items-container {
+      width: 100%; } }
 
 .lair-name {
   font-size: 32px;
@@ -719,19 +750,17 @@ input[type="submit"] {
 
 .lair-user-container {
   display: flex;
-  width: 610px; }
+  justify-content: space-between; }
 
 .lair-name-location {
   display: flex;
   flex-direction: column;
-  width: 70%;
   margin-top: 15px; }
 
 .user-image-name-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 30%; }
+  align-items: center; }
 
 .user-pic {
   border-radius: 50%;
@@ -806,6 +835,9 @@ input[type="submit"] {
   display: flex;
   flex-direction: row;
   justify-content: center; }
+  @media screen and (max-width: 700px) {
+    .lair-detail-container {
+      display: block; } }
 
 .reserve-form-container {
   position: sticky;
@@ -815,10 +847,16 @@ input[type="submit"] {
   border: 1px solid #e4e4e4;
   border-radius: 3px;
   font-family: 'Poppins';
-  height: 100%; }
+  height: 100%;
+  top: 100px; }
   .reserve-form-container .error-text {
     font-size: 12px;
     text-align: center; }
+  @media screen and (max-width: 700px) {
+    .reserve-form-container {
+      position: block;
+      margin: 0 auto;
+      top: 0; } }
 .reserve-form-details {
   width: 325px;
   padding-bottom: 10px;
@@ -895,6 +933,9 @@ input[type="submit"] {
     color: #484848; }
   .review-star-details-row .stars {
     padding-right: 20px; }
+  @media screen and (max-width: 1000px) {
+    .review-star-details-row {
+      display: block; } }
 .review-user-reviews {
   padding: 10px 0px; }
   .review-user-reviews p {

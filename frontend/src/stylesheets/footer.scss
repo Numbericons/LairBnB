@@ -9,6 +9,10 @@
     margin: 0 auto;
     display: flex;
     flex-direction: row;
+    @media screen and (max-width: $break-small) {
+        width: 100%;
+        display: block;
+    }
 }
 
 .column {
@@ -26,5 +30,10 @@
         font-family: 'Poppins', sans-serif;
         color: #767676;
         font-size: 14px;
+    }
+    @media screen and (max-width: $break-small) {
+        margin: 0;
+        width: 100%;
+        text-align: center;
     }
 }

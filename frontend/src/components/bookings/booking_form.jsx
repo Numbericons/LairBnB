@@ -11,7 +11,7 @@ class BookingForm extends React.Component {
             location: "",
             departureDate: null,
             arrivalDate: null,
-            numGuests: 1
+            numGuests: 1,
         }
         this.changeInput = this.changeInput.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -65,6 +65,7 @@ class BookingForm extends React.Component {
         for (let i=2;i<=16;i++) {
             number_of_guests.push(<option value={i} key={i} default>{i} guests</option>)
         }
+        const num_months = window.innerWidth <= 700 ? 1 : 2;
         return(
             <div className="booking-box-container">
                 <div className="booking-box">
@@ -94,6 +95,7 @@ class BookingForm extends React.Component {
                                     onDatesChange={({ startDate, endDate }) => this.setState({ departureDate: endDate, arrivalDate: startDate })} 
                                     focusedInput={this.state.focusedInput}
                                     onFocusChange={focusedInput => this.setState({ focusedInput })}
+                                    numberOfMonths={num_months}
                                 />
                             </div>
                         </div>

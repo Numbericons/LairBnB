@@ -14,6 +14,10 @@
     margin-top: 20vh;
     margin-left: 14vw;
     margin-bottom: 26vh;
+    @media screen and (max-width: $break-small) {
+        margin-left: 10px;
+        width: calc(100% - 100px);
+    }
 }
 
 .booking-box-title {
