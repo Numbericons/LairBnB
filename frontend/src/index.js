@@ -6,7 +6,7 @@ import { logout } from './actions/session_actions';
 import "./stylesheets/output.css"
 import jwt_decode from 'jwt-decode';
 import { setAuthToken } from './util/session_api_util';
-import  {google} from './config/keys_prod'
+import { google } from './config/keys'
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
       resolve()
     }
     const script = document.createElement("script");
-    console.log(google);
+    // const apiKey = jwt_decode(document.cookie['google'])
     script.src = `https://maps.googleapis.com/maps/api/js?key=${google}&callback=googleMapsLoaded&libraries=places`;
     script.type = "text/javascript";
     document.head.appendChild(script);
