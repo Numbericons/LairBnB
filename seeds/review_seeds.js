@@ -8,25 +8,24 @@ mongoose.connect(db, { useNewUrlParser: true })
 const Lair = require('../models/Lair');
 const User = require('../models/User');
 const Review = require('../models/Review');
+const reviewersArray = [
+  'April Graves',
+  'Christie Brandao',
+  'Zachary Oliver',
+  'Charles Mancuso'
+];
 
 const seedReviews = () => {
   Review.deleteMany({}, (err) => { console.log(err) });
   const reviewerIds = [];
   const userObj = {};
-  return User.find({
-      'username': {
-        $in: [
-          'April Graves',
-          'Christie Brandao',
-          'Zachary Oliver',
-          'Charles Mancuso'
-        ]
-      }
-  })
+  return User.find({})
     .then(res => {
       for (let i=0,fin=res.length; i < fin; i++) {
         const user = res[i];
-        reviewerIds.push(user._id);
+        if (reviewersArray.includes(user.username)) {
+          reviewerIds.push(user._id)
+        }
         userObj[user._id] = user.username;
       };
       Lair.find({}).then(res => {
