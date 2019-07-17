@@ -40,5 +40,9 @@ app.use("/api/lairs", lairs);
 app.use("/api/bookings", bookings);
 app.use("/api/reviews", reviews);
 
+app.get("/google", (req, res) => {
+  res.json({ key: googleKey })
+})
+
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server is running on port ${port}`));
