@@ -224,7 +224,7 @@ class NavBar extends React.Component {
       <div className={navSplashClass}>
         <div className="nav-left">
           <a href="#/">
-            <i className="fab fa-airbnb"></i>
+            <i className="fas fa-biohazard"></i>
           </a>
           {this.displaySearchInput()}              
         </div>

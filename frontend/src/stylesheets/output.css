@@ -54,7 +54,7 @@ body {
   font-weight: 700;
   z-index: 3; }
 
-.fa-airbnb {
+.fa-airbnb, .fa-biohazard {
   font-size: 33px;
   color: white;
   transform: translate(0px, -2px);
@@ -94,7 +94,7 @@ body {
   top: 0;
   background-color: white;
   border-bottom: 1px solid #e4e4e4; }
-  .nav-nonsplash .fa-airbnb {
+  .nav-nonsplash .fa-airbnb, .nav-nonsplash .fa-biohazard {
     color: #FF5A5F; }
   .nav-nonsplash .btn-session {
     color: #484848; }
