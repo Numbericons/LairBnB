@@ -2,6 +2,9 @@
     margin: 40px;
     display: flex;
     justify-content: center;
+    @media screen and (max-width: $break-small) {
+        display: block;
+    }
 }
 .unbold {
     font-weight: 400;
@@ -26,6 +29,14 @@
             font-size: 15px;
             padding: 0px 5px 0px 5px;
         }
+    }
+    @media screen and (max-width: $break-small) {
+        margin: 0 auto;
+        width: 100%;
+        margin-top: 20px;
+    }
+    .reviews-container { 
+        margin-top: 30px;
     }
 }
 
@@ -81,6 +92,9 @@
         font-size: 15px;
         color: #484848;
         font-weight: 500;
+    }
+    @media screen and (max-width: $break-small) {
+        margin: 0 auto;
     }
 }
 

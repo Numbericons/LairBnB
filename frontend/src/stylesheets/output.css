@@ -542,6 +542,9 @@ body {
   margin: 40px;
   display: flex;
   justify-content: center; }
+  @media screen and (max-width: 700px) {
+    .user-profile-container {
+      display: block; } }
 
 .unbold {
   font-weight: 400; }
@@ -563,6 +566,13 @@ body {
     .user-profile-right-sub span {
       font-size: 15px;
       padding: 0px 5px 0px 5px; }
+  @media screen and (max-width: 700px) {
+    .user-profile-right {
+      margin: 0 auto;
+      width: 100%;
+      margin-top: 20px; } }
+  .user-profile-right .reviews-container {
+    margin-top: 30px; }
 
 .blurb-quote {
   color: #ebebeb;
@@ -609,6 +619,9 @@ body {
     font-size: 15px;
     color: #484848;
     font-weight: 500; }
+  @media screen and (max-width: 700px) {
+    .user-profile-left {
+      margin: 0 auto; } }
 
 .fa-check-circle {
   color: #008489;
