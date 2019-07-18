@@ -47,7 +47,7 @@
     }
     @media screen and (max-width: $break-small) {
         margin: 0;
-        width: 80px;
+        width: 100%;
     }
 }
 
@@ -93,6 +93,9 @@
     padding: 10px;
     padding-left: 50px;
     font-weight: 700;
+    @media screen and (max-width: $break-small) {
+        width: 100%
+    }
 }
 .nav-search:hover {
     box-shadow: 0 2px 4px rgba(0,0,0,0.1), 0 4px 12px rgba(26, 26, 29, 0.08);
