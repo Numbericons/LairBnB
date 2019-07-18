@@ -1040,7 +1040,8 @@ input[type="submit"] {
   box-sizing: border-box;
   margin: 25px;
   height: 500px;
-  transition: transform .3s; }
+  transition: transform .3s;
+  min-width: 385px; }
 
 .actual-booking-container:hover {
   transform: scale(1.05);
