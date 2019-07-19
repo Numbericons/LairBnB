@@ -2,3 +2,5 @@
 .DS_Store
 
 /config/keys_dev.js
+
+docker-compose.yml
