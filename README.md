@@ -22,13 +22,13 @@ Splash page allows to search for lairs without logging in
 ![Splash](./frontend/src/assets/screenshots/splash.png)
 
 Lairs listings on the left dynamically adjust depending on the pins appearing on the map
-![Splash](./frontend/src/assets/screenshots/map2.gif)
+![Map](./frontend/src/assets/screenshots/map2.gif)
 
 Search lairs by location, categories (castle, spaceship, etc..). If you're feeling fancy, explore the evil luxury lairs
-![Splash](./frontend/src/assets/screenshots/home.png)
+![Home](./frontend/src/assets/screenshots/home.png)
 
 The lair show page allows a user to book a lair with a calendar as well as see previous guests reviews
-![Splash](./frontend/src/assets/screenshots/lairshow.png)
+![Lair show](./frontend/src/assets/screenshots/lairshow.png)
 
 Peek at your upcoming trips with an option to cancel
 ![Trips](./frontend/src/assets/screenshots/trips.png)
