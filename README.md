@@ -1,17 +1,7 @@
 # LairBnB
 
-## Background and Overview
+## Overview
 LairBnB is a full stack clone of AirBnB that connects villains who want to rent out their evil lairs to everyday citizens seeking something less mundane for their vacation homes.
-
-## Functionality and MVP
-* User authentication: sign up and log in
-* Publicly viewable listing of lairs with index and show pages
-* Users that are logged in are able to make, cancel, and edit their bookings
-* Browse amenities each lair offers
-* Create and read user reviews
-* Aggregate user review scores
-* Browse by location on Google Maps
-* Categories for splash screen - beach, international etc.
 
 ## Technologies
 
@@ -23,60 +13,40 @@ LairBnB is a full stack clone of AirBnB that connects villains who want to rent 
 * AWS S3 for storage of images
 * React-Dates for our calendar 
 
-## Technical Challenges
-* React Dates
-* Google maps
-* Conflicting bookings
-* Mongoose data seed
+## Preview
 
-## Bonus Features
-* Login with facebook / chrome
-* Experience Hosting
-* Host a Lair
-* Cycle through splash page images to show a different image on refresh
-* Availability for Lair beyond booking conflicts
-* Neighborhood Map
-* Lair Review Form
+Splash page allows to search for lairs without logging in
+![Splash](./frontend/src/assets/screenshots/splash.png)
 
-## Group Members and Work Breakdown
+Lairs listings on the left dynamically adjust depending on the pins appearing on the map
+![Splash](./frontend/src/assets/screenshots/map2.gif)
 
-* April Graves
-* Charles Mancuso
-* Christie Brandao
-* Zach Oliver
+Search lairs by location, categories (castle, spaceship, etc..). If you're feeling fancy, explore the evil luxury lairs
+![Splash](./frontend/src/assets/screenshots/home.png)
 
-### Monday, July 8th
-* Wiki
-* Build skeleton react/redux site - all
-* Basic splash page - Christie / Zach
-* Backend/frontend login / register - April / Charles
+The lair show page allows a user to book a lair with a calendar as well as see previous guests reviews
+![Splash](./frontend/src/assets/screenshots/lairshow.png)
 
-### Tuesday, July 9th
-* Lair db model, validations, routes - all
-* Lair initial seeds - Christie
-* Lair create, read
-* Lair Listings Index
-* Booking db model, validations, routes
-* Booking a reservation create, read
+Peek at your upcoming trips with an option to cancel
+![Trips](./frontend/src/assets/screenshots/trips.png)
 
-### Wednesday, July 10th
-* Lair Listings Show
-* Lair Search 1/2
-* Booking db model, validations, routes - all
-* Booking a reservation update, destroy
 
-### Thursday, July 11th
-* Reviews model, validations, routes - all
-* Reviews frontend display and styling
-* Map - April / Charles
-* Lair Search 2/2
+## Functionality and MVP
+* User authentication: sign up and log in
+* Publicly viewable listing of lairs with index and show pages
+* Users that are logged in are able to make, cancel, and edit their bookings
+* Browse amenities each lair offers
+* Create and read user reviews
+* Aggregate user review scores
+* Browse by location on Google Maps
+* Categories for splash screen - beach, international etc.
 
-### Friday, July 12th
-* Finish features
-* Bonus
 
-### Saturday, July 13th
-* Readme
 
-### Sunday, July 14th
-* Readme
+## Developers
+
+* [April Graves](https://github.com/AprilHGraves)
+* [Charles Mancuso](https://github.com/unionky)
+* [Christie Brandao](https://github.com/cbrandao18)
+* [Zach Oliver](https://github.com/Numbericons/)
+
