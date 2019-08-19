@@ -34,22 +34,3 @@ Peek at your upcoming trips with an option to cancel
 ![Trips](./frontend/src/assets/screenshots/trips.png)
 
 
-## Functionality and MVP
-* User authentication: sign up and log in
-* Publicly viewable listing of lairs with index and show pages
-* Users that are logged in are able to make, cancel, and edit their bookings
-* Browse amenities each lair offers
-* Create and read user reviews
-* Aggregate user review scores
-* Browse by location on Google Maps
-* Categories for splash screen - beach, international etc.
-
-
-
-## Developers
-
-* [April Graves](https://github.com/AprilHGraves)
-* [Charles Mancuso](https://github.com/unionky)
-* [Christie Brandao](https://github.com/cbrandao18)
-* [Zach Oliver](https://github.com/Numbericons/)
-
